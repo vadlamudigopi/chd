@@ -1,0 +1,396 @@
+﻿@{
+
+    ViewBag.Title = "Emergency Drill Log";
+
+    var MMDropdown = "<option value=''>MM</option>";
+    for (int i = 00; i < 16; i++)
+    {
+        MMDropdown = MMDropdown + "<option value='" + @i.ToString("D2") + "'>" + @i.ToString("D2") + "</option>";
+    }
+    var SSDropdown = "<option value=''>SS</option>";
+    for (int i = 00; i < 60; i++)
+    {
+        SSDropdown = SSDropdown + "<option value='" + @i.ToString("D2") + "'>" + @i.ToString("D2") + "</option>";
+    }
+
+}
+@section styles {
+    <link rel="Stylesheet" type="text/css" href="~/Content/jquery.datetimepicker.css" />
+    <style>
+        .form-control[readonly] {
+            background-color: white;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.form-validator.min.js"></script>
+    <script src="~/Scripts/jquery.datetimepicker.js"></script>
+    <script src="~/Scripts/jquery.multi-select.min.js"></script>
+    <script src="~/Scripts/drill_log.js"></script>
+    <script>
+        var resultJSON = "";
+        $.validate({
+            lang: 'en'
+        });
+
+
+        $('#TypeOfDrill').multiSelect({
+            noneText: 'Select Drill Type'
+        });
+
+        $(".DynamicAddress").html('');
+        $(".DynamicData").html('');
+        function GetLocations(program) {
+            $(".dynamicDataVariales").remove('');
+            $.ajax({
+                url: '../ResidentialDrill/GetLocations',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({ ProgramName: program, drillType: "Residential" }),
+                success: function (result) {
+                    $(".DynamicData").html('');
+                    $(".DynamicAddress").html('');
+                    $("#Location").html("");
+                    $("#Location").append($('<option></option>').val(null).html("---Select Residence/Team---"));
+                    $.each($.parseJSON(result), function (i, location)
+                    { $("#Location").append($('<option></option>').val(location).html(location)) })
+
+                },
+                error: function () { alert("Whooaaa! Something went wrong..") },
+            });
+
+        }
+        function buildHTML(resultJSON) {
+            var html = "";
+            for (var loop = 0; loop < 3; loop++) {
+                var html = html + '<div class="col-md-6 dynamicDataVariales"><div class="form-group row"><label class="col-sm-4 col-form-label">' + resultJSON[loop]['Key'] + ':</label><div class="col-sm-8">' + resultJSON[loop]['Value'] + '</div></div></div>';
+            }
+            return html;
+        }
+        function GetAddress(location) {
+            var program = $("#NameofProgram").val();
+            $.ajax({
+                url: '../ResidentialDrill/GetAddress',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({ Location: location, ProgramName: program }),
+                success: function (result) {
+                    $(".DynamicAddress").html('');
+                    $(".DynamicData").html('');
+                    $(".dynamicDataVariales").remove('');
+                    var count = 0; var address = [];
+                    $.each($.parseJSON(result), function (Key, Value) {
+                        if (Value['Key'] == "Address") {
+                            address.push(Value['Value']);
+                            count++;
+                        }
+                    });
+
+                    if (count < 2) {
+                        resultJSON = $.parseJSON(result);
+                        var html = buildHTML(resultJSON);
+                        var html = html + '<input type="hidden" name="ProgramAddress" class="form-control dynamicDataVariales" id="ProgramAddress" value="' + resultJSON[1]['Value'] + '">';
+                        $(".DynamicAddress").after(html);
+                        //$(".DynamicData").html('<p><label><span style="font-weight:500;">' + resultJSON[0]['Key'] + ': </span> ' + resultJSON[0]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label><span style="font-weight:500;">' + resultJSON[1]['Key'] + ': </span> ' + resultJSON[1]['Value'] + '</label></p><p><label><span style="font-weight:500;">' + resultJSON[2]['Key'] + ': </span> ' + resultJSON[2]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span style="font-weight:500;">' + resultJSON[3]['Key'] + ': </span> ' + resultJSON[3]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span style="font-weight:500;">' + resultJSON[4]['Key'] + ': </span> ' + resultJSON[4]['Value'] + '</label></p>');
+                    } else {
+
+                        var select = $('<select name="ProgramAddress" class="form-control" id="ProgramAddress" data-validation-error-msg-container="#AddressError" data-validation-error-msg="Please select address" data-validation="required" onchange="GetFullDetails(this.value);"></select>');
+                        var option = $('<option></option>');
+                        option.attr('value', '');
+                        option.text("--Please select address--");
+                        select.append(option);
+                        $.each(address, function (index, value) {
+                            var option = $('<option></option>');
+                            option.attr('value', value);
+                            option.text(value);
+                            select.append(option);
+                        });
+                        var addressList = '<div class="form-group row"><label class="col-sm-4 col-form-label">Address:</label><div class="col-sm-8 DynamicSelect"></div></div>';
+
+                        $(".DynamicAddress").html(addressList);
+                        $('.DynamicSelect').append(select);
+                        $('.DynamicSelect').append("<span id='AddressError'></span>");
+                        $.validate({
+                            lang: 'en'
+                        });
+                    }
+                },
+                error: function () { alert("Whooaaa! Something went wrong..") },
+            });
+
+        }
+
+        function GetFullDetails(address) {
+            var program = $("#NameofProgram").val();
+            var address = $("#Location").val();
+            var location = $("#ProgramAddress").val();
+            $.ajax({
+                url: '../ResidentialDrill/GetFullDetails',
+                type: 'POST',
+                datatype: 'application/json',
+                contentType: 'application/json',
+                data: JSON.stringify({ ProgramAddress: location, ProgramName: program, Address: address }),
+                success: function (result) {
+                    $(".DynamicData").html('');
+                    resultJSON = $.parseJSON(result);
+                    $(".DynamicData").html('<p><label><span style="font-weight:500;">' + resultJSON[0]['Key'] + ': </span> ' + resultJSON[0]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label><span style="font-weight:500;">' + resultJSON[1]['Key'] + ': </span> ' + resultJSON[1]['Value'] + '</label></p><p><label><span style="font-weight:500;">' + resultJSON[2]['Key'] + ': </span> ' + resultJSON[2]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span style="font-weight:500;">' + resultJSON[3]['Key'] + ': </span> ' + resultJSON[3]['Value'] + '</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span style="font-weight:500;">' + resultJSON[4]['Key'] + ': </span> ' + resultJSON[4]['Value'] + '</label></p>');
+
+                },
+                error: function () { alert("Whooaaa! Something went wrong..") },
+            });
+
+        }
+
+
+    </script>
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-size:16px;">Resdential Drill Log</h4>
+            <form class="form-sample" method="POST" enctype="multipart/form-data">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Name of Program:</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control error" id="NameofProgram" name="NameofProgram" title="Select Program Name" data-validation-error-msg-container="#NameofProgramError" data-validation-error-msg="Please select program" data-validation="required" onchange="GetLocations(this.value)" style="border-color: rgb(185, 74, 72);">
+                                        <option value="">-- Select Program --</option>
+                                        @Html.Raw(ViewBag.dropdown);
+                                    </select>
+                                    <span id="NameofProgramError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Residence/Team:</label>
+                                <div class="col-sm-8">
+                                    <select name="Location" class="form-control" id="Location" title="Select Program Location" data-validation-error-msg-container="#LocationError" data-validation-error-msg="Please select location" data-validation="required" onchange="GetAddress(this.value);">
+                                        <option value="">--Select Residence/Team--</option>
+                                    </select>
+                                    <span id="LocationError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 DynamicAddress"></div>
+                        <div class="col-md-12 form-group DynamicData"></div>
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <div class="col-xs-12 col-sm-6 col-md-4" style="display:flex;">
+                                    <div class="form-radio" style="margin-top:auto;">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="Evacuation" id="TypeOfDrillFire" value="Evacuation" data-validation-error-msg-container="#EvacuationError" data-validation-error-msg="Please select evacuation type" data-validation="required"> Evacuation
+                                        </label>
+                                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="form-radio" style="margin-top:auto;">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="Evacuation" id="TypeOfDrillNaturalDisaster" data-validation-error-msg-container="#EvacuationError" data-validation-error-msg="Please select evacuation type" value="Table Top"> Table Top
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6" style="display:flex;">
+
+                                    <div class="form-radio" style="margin-top:auto;">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="Evacuation" id="TypeOfDrillUtilityFailure" data-validation-error-msg-container="#EvacuationError" data-validation-error-msg="Please select evacuation type" value="Evacuation off Site"> Evacuation off Site (to secondary location)
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12" id="EvacuationError"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label">Please check the box that applies to the drill(s) you are conducting:</label>
+                                <div class="col-sm-6">
+                                    <select name="TypeOfDrill[]" title="Select one of the Drill" class="form-control" data-validation-error-msg-container="#TypeOfDrillError" data-validation-error-msg="Please select Type Of Drill" id="TypeOfDrill" data-validation="required" multiple>
+                                        <option value="Fire">Fire</option>
+                                        <option value="Natural Disaster">Natural Disaster</option>
+                                        <option value="Utility Failure">Utility Failure</option>
+                                        <option value="Bomb Threat">Bomb Threat</option>
+                                        <option value="Medical Emergencies">Medical Emergencies</option>
+                                        <option value="Violent or Other threatening situations">Violent or Other threatening situations</option>
+                                        <option value="Opioid Overdose">Opioid Overdose</option>
+                                        <option value="Elopement">Elopement</option>
+                                    </select>
+                                    <span id="TypeOfDrillError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Date & Time of Drill:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="DateTimeofDrill" autocomplete="off" readonly id="DateTimeofDrill" data-validation-error-msg-container="#DateTimeofDrillError" data-validation-error-msg="Please select DateTime of Drill" class="form-control" data-validation="required" placeholder="MM/DD/YYYY HH:MM" />
+                                    <span id="DateTimeofDrillError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label">Name(s) of staff participating in Drill:</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="NameofStaff" id="NameofStaff" data-validation-error-msg-container="#NameofStaffError" data-validation-error-msg="Enter Name of Staff" class="form-control" data-validation="required" />
+                                    <span id="NameofStaffError"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Duration of drill : </label>
+                                <div class="col-sm-8" style="display:flex;">
+                                    <select title="MM" name="DurationofdrillMinutes" id="DurationofdrillMinutes" data-validation-error-msg-container="#Durationofdrill_minutes_error" data-validation-error-msg="Please select Duration of drill minutes" class="form-control" data-validation="required" style="width:72px;">
+                                        @Html.Raw(MMDropdown);
+                                    </select>
+                                    <select title="SS" name="DurationofdrillSeconds" id="DurationofdrillSeconds" class="form-control" data-validation-error-msg-container="#Durationofdrill_seconds_error" data-validation-error-msg="Please select Duration of drill seconds" data-validation="required" style="width:72px;">
+                                        @Html.Raw(SSDropdown);
+                                       
+                                    </select><br />
+                                    <input type="hidden" autocomplete="off" readonly name="Durationofdrill" id="Durationofdrill" placeholder="MM:SS" />
+                                    <span id="Durationofdrill_minutes_error"></span>
+                                    <span id="Durationofdrill_seconds_error"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label">Program Staff Ratio: (ex. 1:3 1:4 1:5) :</label>
+                                <div class="col-sm-6">
+                                    <select name="StaffRatio" id="StaffRatio" data-validation-error-msg-container="#StaffRatioError" data-validation-error-msg="Enter Staff Ratio" class="form-control" data-validation="required">
+                                        <option>1:1</option>                                        
+                                        <option>1:2</option>
+                                        <option>1:3</option>
+                                        <option>1:4</option>
+                                        <option>1:5</option>
+                                    </select>
+                                    <span id="StaffRatioError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">Table Top: What was the scenario? Bomb threat, violent person, medical emergency etc. What was the participation level of the clients? What egress was blocked? </label>
+                                <div class="col-sm-12">
+                                    <textarea name="DrillScenario" title="Table Top: What was the scenario?" id="DrillScenario" data-validation-error-msg-container="#RequiredError1" data-validation-error-msg="Enter required data" class="form-control" data-validation="required"></textarea>
+                                    <span id="RequiredError1"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">If clients did not successfully exit the building, explain why the Client did not meet required timelines along with individual fire evacuation plan addressing what training, staff support, etc. will be provided to ensure the client’s successful evacuation in the event of an actual fire. </label>
+                                <div class="col-sm-12">
+                                    <textarea name="BuildingExit" id="BuildingExit" title="explain why the Client did not meet required timelines" data-validation-error-msg-container="#RequiredError2" data-validation-error-msg="Enter required data" class="form-control" data-validation="required"></textarea>
+                                    <span id="RequiredError2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">Which means of Egress was blocked?</label>
+                                <div class="col-sm-12">
+                                    <textarea name="EgressWasBlocked" title="Egress" id="EgressWasBlocked" data-validation-error-msg-container="#RequiredError3" data-validation-error-msg="Enter required data" class="form-control" data-validation="required"></textarea>
+                                    <span id="RequiredError3"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-form-label">If the drill was an evacuation to secondary location, indicate which location this was: </label>
+                                <div class="col-sm-12">
+                                    <textarea name="SecondaryLocation" id="SecondaryLocation" title="indicate secondary location" data-validation-error-msg-container="#RequiredError5" data-validation-error-msg="Enter required data" class="form-control" data-validation="required"></textarea>
+                                    <span id="RequiredError5"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label">Staff Signature (Staff who conducted drill): </label>
+                                <div class="col-sm-6">
+                                    <input type="text" value="" name="StaffSignature" id="StaffSignature" data-validation-error-msg-container="#StaffSignatureError" data-validation-error-msg="Enter Staff Signature" class="form-control" data-validation="required" />
+                                    <span id="StaffSignatureError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Date:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="StaffSignatureDate" id="StaffSignatureDate" autocomplete="off" readonly data-validation-error-msg-container="#StaffSignatureDateError" data-validation-error-msg="Select staff signature date" class="form-control" data-validation="required" placeholder="MM/DD/YYYY" />
+                                    <span id="StaffSignatureDateError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group row">
+                                <label class="col-sm-6 col-form-label">Supervisor Signature: </label>
+                                <div class="col-sm-6">
+                                    <input type="text" value="" name="SupervisorSignature" id="SupervisorSignature" data-validation-error-msg-container="#SupervisorSignatureError" data-validation-error-msg="Enter Supervisor Signature" class="form-control" data-validation="required" />
+                                    <span id="SupervisorSignatureError"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Date:</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="SupervisorSignatureDate" id="SupervisorSignatureDate" autocomplete="off" readonly data-validation-error-msg-container="#SupervisorSignatureDateError" data-validation-error-msg="Select Supervisor Signature Date" class="form-control" data-validation="required" placeholder="MM/DD/YYYY" />
+                                    <span id="SupervisorSignatureDateError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label">Upload Survey:</label>
+                                <div class="col-sm-4">
+                                    <input type="file" name="UploadSurvey" id="UploadSurvey" data-validation-error-msg-container="#UploadSurveyError" data-validation-error-msg="Upload Survey Data" class="form-control" data-validation="required" />
+                                    <span id="UploadSurveyError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-success mr-2">Submit</button>
+                            <input type="hidden" name="DrillWasDuring" id="DrillWasDuring" value="" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

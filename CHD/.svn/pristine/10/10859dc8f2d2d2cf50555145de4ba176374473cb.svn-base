@@ -1,0 +1,419 @@
+﻿<form class="form-sample" id="ExteriorDeckPorchWODCForm" method="POST" enctype="multipart/form-data">
+    <section id="ExteriorDeckPorchWODC" class="SurveySection">
+        <h4>Exterior</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Deck/porch are in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDeckPorch" id="ExteriorDeckPorchYes" value="Yes" data-validation-error-msg-container="#ExteriorDeckPorchError" data-validation-error-msg="Please select Deck/porch are in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDeckPorch" id="ExteriorDeckPorchNo" data-validation-error-msg-container="#ExteriorDeckPorchError" data-validation-error-msg="Please select Deck/porch are in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDeckPorch" id="ExteriorDeckPorchNA" data-validation-error-msg-container="#ExteriorDeckPorchError" data-validation-error-msg="Please select Deck/porch are in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">        <div class="col-md-12">
+            <div class="row">                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorDeckPorchWODC" id="ExteriorDeckPorchWODC" data-validation-error-msg-container="#ExteriorDeckPorchWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorDeckPorchWODCError"></span>
+            </div>
+        </div>
+</div>
+                <div class="col-sm-5" id="ExteriorDeckPorchError"></div>
+            </div>
+        </div>
+<hr />
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Shed is in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShed" id="ExteriorShedYes" value="Yes" data-validation-error-msg-container="#ExteriorShedError" data-validation-error-msg="Please select Shed is in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShed" id="ExteriorShedNo" data-validation-error-msg-container="#ExteriorShedError" data-validation-error-msg="Please select Shed is in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShed" id="ExteriorShedNA" data-validation-error-msg-container="#ExteriorShedError" data-validation-error-msg="Please select Shed is in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorShedWODC" id="ExteriorShedWODC" data-validation-error-msg-container="#ExteriorShedWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorShedWODCError"></span>
+                
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorShedError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Gutters are in place and in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGutters" id="ExteriorGuttersYes" value="Yes" data-validation-error-msg-container="#ExteriorGuttersError" data-validation-error-msg="Please select Gutters are in place and in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGutters" id="ExteriorGuttersNo" data-validation-error-msg-container="#ExteriorGuttersError" data-validation-error-msg="Please select Gutters are in place and in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGutters" id="ExteriorGuttersNA" data-validation-error-msg-container="#ExteriorGuttersError" data-validation-error-msg="Please select Gutters are in place and in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorGuttersWODC" id="ExteriorGuttersWODC" data-validation-error-msg-container="#ExteriorGuttersWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorGuttersWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorGuttersError"></div>
+            </div>
+        </div>
+<hr />
+        
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Sidewalks are in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorSidewalks" id="ExteriorSidewalksYes" value="Yes" data-validation-error-msg-container="#ExteriorSidewalksError" data-validation-error-msg="Please select Sidewalks are in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorSidewalks" id="ExteriorSidewalksNo" data-validation-error-msg-container="#ExteriorSidewalksError" data-validation-error-msg="Please select Sidewalks are in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorSidewalks" id="ExteriorSidewalksNA" data-validation-error-msg-container="#ExteriorSidewalksError" data-validation-error-msg="Please select Sidewalks are in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorSidewalksWODC" id="ExteriorSidewalksWODC" data-validation-error-msg-container="#ExteriorSidewalksWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorSidewalksWODCError"></span>
+
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorSidewalksError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Shrubs/trees are trimmed: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShrubs" id="ExteriorShrubsYes" value="Yes" data-validation-error-msg-container="#ExteriorShrubsError" data-validation-error-msg="Please select Shrubs/trees are trimmed" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShrubs" id="ExteriorShrubsNo" data-validation-error-msg-container="#ExteriorShrubsError" data-validation-error-msg="Please select Shrubs/trees are trimmed" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorShrubs" id="ExteriorShrubsNA" data-validation-error-msg-container="#ExteriorShrubsError" data-validation-error-msg="Please select Shrubs/trees are trimmed" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorShrubsWODC" id="ExteriorShrubsWODC" data-validation-error-msg-container="#ExteriorShrubsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorShrubsWODCError"></span>
+                
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorShrubsError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Lawn is mowed and flower beds no weeds: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorLawn" id="ExteriorLawnYes" value="Yes" data-validation-error-msg-container="#ExteriorLawnError" data-validation-error-msg="Please select Lawn is mowed and flower beds no weeds" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorLawn" id="ExteriorLawnNo" data-validation-error-msg-container="#ExteriorLawnError" data-validation-error-msg="Please select Lawn is mowed and flower beds no weeds" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorLawn" id="ExteriorLawnNA" data-validation-error-msg-container="#ExteriorLawnError" data-validation-error-msg="Please select Lawn is mowed and flower beds no weeds" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorLawnWODC" id="ExteriorLawnWODC" data-validation-error-msg-container="#ExteriorLawnWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorLawnWODCError"></span>
+
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorLawnError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Garbage receptacles are clean and neatly stored: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGarbage" id="ExteriorGarbageYes" value="Yes" data-validation-error-msg-container="#ExteriorGarbageError" data-validation-error-msg="Please select Garbage receptacles are clean and neatly stored" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGarbage" id="ExteriorGarbageNo" data-validation-error-msg-container="#ExteriorGarbageError" data-validation-error-msg="Please select Garbage receptacles are clean and neatly stored" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorGarbage" id="ExteriorGarbageNA" data-validation-error-msg-container="#ExteriorGarbageError" data-validation-error-msg="Please select Garbage receptacles are clean and neatly stored" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorGarbageWODC" id="ExteriorGarbageWODC" data-validation-error-msg-container="#ExteriorGarbageWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorGarbageWODCError"></span>
+
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorGarbageError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Mailbox in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorMailbox" id="ExteriorMailboxYes" value="Yes" data-validation-error-msg-container="#ExteriorMailboxError" data-validation-error-msg="Please select Mailbox in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorMailbox" id="ExteriorMailboxNo" data-validation-error-msg-container="#ExteriorMailboxError" data-validation-error-msg="Please select Mailbox in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorMailbox" id="ExteriorMailboxNA" data-validation-error-msg-container="#ExteriorMailboxError" data-validation-error-msg="Please select Mailbox in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorMailboxWODC" id="ExteriorMailboxWODC" data-validation-error-msg-container="#ExteriorMailboxWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorMailboxWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorMailboxError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Doors latch and in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDoors" id="ExteriorDoorsYes" value="Yes" data-validation-error-msg-container="#ExteriorDoorsError" data-validation-error-msg="Please select Doors latch and in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDoors" id="ExteriorDoorsNo" data-validation-error-msg-container="#ExteriorDoorsError" data-validation-error-msg="Please select Doors latch and in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorDoors" id="ExteriorDoorsNA" data-validation-error-msg-container="#ExteriorDoorsError" data-validation-error-msg="Please select Doors latch and in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">        <div class="col-md-12">
+            <div class="row">
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorDoorsWODC" id="ExteriorDoorsWODC" data-validation-error-msg-container="#ExteriorDoorsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorDoorsWODCError"></span>
+               
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorDoorsError"></div>
+            </div>
+        </div>
+<hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Outdoor lighting is operable and in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorOutdoor" id="ExteriorOutdoorYes" value="Yes" data-validation-error-msg-container="#ExteriorOutdoorError" data-validation-error-msg="Please select Outdoor lighting is operable and in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorOutdoor" id="ExteriorOutdoorNo" data-validation-error-msg-container="#ExteriorOutdoorError" data-validation-error-msg="Please select Outdoor lighting is operable and in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorOutdoor" id="ExteriorOutdoorNA" data-validation-error-msg-container="#ExteriorOutdoorError" data-validation-error-msg="Please select Outdoor lighting is operable and in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+               
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorOutdoorWODC" id="ExteriorOutdoorWODC" data-validation-error-msg-container="#ExteriorOutdoorWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorOutdoorWODCError"></span>
+               
+            </div>
+        </div>
+</div>
+                <div class="col-sm-5" id="ExteriorOutdoorError"></div>
+            </div>
+        </div>
+        
+<hr />
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Exterior walls of the house are clean and in good repair – NO holes, peeling paint, dirt, algae: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorWalls" id="ExteriorWallsYes" value="Yes" data-validation-error-msg-container="#ExteriorWallsError" data-validation-error-msg="Please select Exterior walls of the house are clean and in good repair – NO holes, peeling paint, dirt, algae" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorWalls" id="ExteriorWallsNo" data-validation-error-msg-container="#ExteriorWallsError" data-validation-error-msg="Please select Exterior walls of the house are clean and in good repair – NO holes, peeling paint, dirt, algae" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ExteriorWalls" id="ExteriorWallsNA" data-validation-error-msg-container="#ExteriorWallsError" data-validation-error-msg="Please select Exterior walls of the house are clean and in good repair – NO holes, peeling paint, dirt, algae" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="ExteriorWallsWODC" id="ExteriorWallsWODC" data-validation-error-msg-container="#ExteriorWallsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="ExteriorWallsWODCError"></span>
+                
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="ExteriorWallsError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="ExteriorDeckPorchWODCPrevious" onclick="goPreviousForm('Basement', 'BasementNext', 'BasementPrevious');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="ExteriorDeckPorchWODCNext">Next</button>
+        </div>
+    </section>
+</form>

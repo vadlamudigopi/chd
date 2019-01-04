@@ -1,0 +1,248 @@
+﻿
+@{
+    ViewBag.Title = "Emergency Procedure Checklist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts {
+    <script src="~/Scripts/jquery.form-validator.min.js"></script>
+    <script>
+        $.validate({
+            lang: 'en'
+        });
+        $(function () {
+            $("input[name='PeopleLeft']").change(function () {
+
+                if ($(this).val() == "YES") {
+                    $(".PeopleLeftWho").show();
+                }
+                else {
+                    $(".PeopleLeftWho").hide();
+                }
+
+            });
+            $("input[name='EmergencyDisaster']").change(function () {
+
+                if ($(this).val() == "NO") {
+                    $(".EmergencyDisasterWho").show();
+                }
+                else {
+                    $(".EmergencyDisasterWho").hide();
+                }
+
+            });
+            $("input[name='PPEnhanceSafety']").change(function () {
+
+                if ($(this).val() == "YES") {
+                    $(".PPEnhanceSafetyRec").show();
+                }
+                else {
+                    $(".PPEnhanceSafetyRec").hide();
+                }
+
+            });
+        });
+   </script>
+}
+
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title" style="font-size:16px;">Emergency Procedure checklist</h4>
+            <form class="form-sample" action="#" method="post">
+                    <div class="col-xs-12">
+                        <div class="form-group row">
+                            <div class="col-md-8">
+                                <label class="col-form-label">All employees and clients evacuate under 2 ½ minutes: </label>
+                            </div>
+                            <div class="col-md-4" style="display:flex;">
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="ECEvcuate" id="ECEvcuateYES" value="YES" data-validation="required" > Yes
+                                    </label>
+                                </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="ECEvcuate" id="ECEvcuateNO" value="NO"> No
+                                    </label>
+                                </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="ECEvcuate" id="ECEvcuateNA" value="NA"> N/A
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-8">
+                                <label class="col-form-label">All staff and clients accounted for at the designated evacuation location: </label>
+                            </div>
+                            <div class="col-md-4" style="display:flex;">
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="SCAccounted" id="SCAccountedYES" value="YES" data-validation="required"> Yes
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="SCAccounted" id="SCAccountedNO" value="NO"> No
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="SCAccounted" id="SCAccountedNA" value="NA"> N/A
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-8">
+                                <label class="col-form-label">Were people left in the building who did not move to a safe location? </label>
+                            </div>
+                            <div class="col-md-4" style="display:flex;">
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PeopleLeft" id="PeopleLeftYES" value="YES" data-validation="required"> Yes
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PeopleLeft" id="PeopleLeftNO" value="NO"> No
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PeopleLeft" id="PeopleLeftNA" value="NA"> N/A
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row PeopleLeftWho" style="display:none;">
+                            <label class="col-md-8 col-form-label">If yes, who and why? </label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" rows="3" id="PeopleLeftWho"></textarea>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <div class="col-md-8">
+                                <label class="col-form-label">Were the emergency procedures followed for the appropriate Disaster (fire, severe weather, power failure, evacuation)?</label>
+                            </div>
+                            <div class="col-md-4" style="display:flex;">
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="EmergencyDisaster" id="EmergencyDisasterYES" value="YES" data-validation="required"> Yes
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="EmergencyDisaster" id="EmergencyDisasterNO" value="NO"> No
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="EmergencyDisaster" id="EmergencyDisasterNA" value="NA"> N/A
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row EmergencyDisasterWho" style="display:none;">
+                            <label class="col-md-8 col-form-label">If no, what procedures in the policies were not followed?  </label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" rows="3" id="EmergencyDisasterWho"></textarea>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <div class="col-md-8">
+                                <label class="col-form-label">Does the policy/procedure(s) need to be changed to enhance safety?</label>
+                            </div>
+                            <div class="col-md-4" style="display:flex;">
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PPEnhanceSafety" id="PPEnhanceSafetyYES" value="YES" data-validation="required"> Yes
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PPEnhanceSafety" id="PPEnhanceSafetyNO" value="NO"> No
+                                    </label>
+                                </div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class="form-radio" style="margin-top:auto;">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="PPEnhanceSafety" id="PPEnhanceSafetyNA" value="NA"> N/A
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row PPEnhanceSafetyRec" style="display:none;">
+                            <label class="col-md-8 col-form-label">If yes, recommendations: </label>
+                            <div class="col-md-4">
+                                <textarea class="form-control" rows="4" id="PPEnhanceSafetyRec"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Report completed by</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" name="ReportName" id="ReportName" class="form-control" data-validation="required" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-form-label">Date completed</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" name="CompletedDate" id="CompletedDate" class="form-control" data-validation="date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-8 col-form-label">Drill outcome reported to safety, performance improvement or management team on:</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" name="ImprovementDate" id="ImprovementDate" class="form-control" data-validation="date"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-8 col-form-label">Upload Survey:</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" name="uploadSurvey" id="uploadSurvey" class="form-control" data-validation="required" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" @*onclick="window.location.href = '@Url.Action("SurveyList","Emergency")'"*@ class="btn btn-success mr-2">Submit</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+

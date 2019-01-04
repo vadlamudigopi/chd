@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "CHD Compliance application";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string appHomePage = System.Configuration.ConfigurationManager.AppSettings.Get("homePage");
+}
+@section styles {
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>    
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts/drill_log.js"></script>
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+        <div>
+            <div style="float:right;margin: 5px;"><button type="button" class="btn btn-success btn-fw" onclick="window.location.href='@(appHomePage)Emergency/DrillLogOfficesClinics'">
+            <i class="mdi mdi-check"></i>Add Drill</button></div><h4 class="card-title">Non-residential / Office Drills</h4>
+        </div>
+        <div class="table-responsive">
+        @Html.Raw(ViewBag.htmldata)        
+        </div>
+    </div>
+    </div>
+</div>
+<!--- modal windwo --->
+<div id="nonResidentialModalWindow" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="chd modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="chd modal-title">Non-residential / Office base Drills</h4>
+            </div>
+            <div class="chd modal-body"></div>
+        </div>
+
+    </div>
+</div>
+<!--- modal windwo --->

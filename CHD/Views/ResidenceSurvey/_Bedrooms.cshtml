@@ -1,0 +1,34 @@
+﻿<form class="form-sample" id="BedroomsForm" method="POST" enctype="multipart/form-data">
+    <section id="Bedrooms" class="SurveySection">
+        <h4>Bedrooms</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No Of Bedrooms:</label>
+                <div class="col-sm-3">
+                    <select name="NoOfBedrooms:" class="form-control" id="NoOfBedrooms" data-validation-error-msg-container="#NoOfBedroomsError" data-validation-error-msg="Select No Of Bedrooms" data-validation="required">
+                        <option value="">--Select No Of Bedrooms--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                    </select>
+                    <span id="NoOfBedroomsError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="BedroomsPrevious" onclick="goPreviousForm('Bathroom1', 'Bathroom1Next', 'Bathroom1Previous');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="BedroomsNext">Next</button>
+        </div>
+    </section>
+</form>

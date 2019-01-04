@@ -1,0 +1,77 @@
+﻿<form class="form-sample" id="SAFETYHeatingForm" method="POST" enctype="multipart/form-data">
+    <section id="SAFETYHeating" class="SurveySection">
+        <h4>SAFETY Heating</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Current oil levels are no less than a quarter tank (1/4): </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingCurrentoil" id="SAFETYHeatingCurrentoilYes" value="Yes" data-validation-error-msg-container="#SAFETYHeatingCurrentoilError" data-validation-error-msg="Please select Current oil levels are no less than a quarter tank (1/4) " data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingCurrentoil" id="SAFETYHeatingCurrentoilNo" data-validation-error-msg-container="#SAFETYHeatingCurrentoilError" data-validation-error-msg="Please select Current oil levels are no less than a quarter tank (1/4) " value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingCurrentoil" id="SAFETYHeatingCurrentoilNA" data-validation-error-msg-container="#SAFETYHeatingCurrentoilError" data-validation-error-msg="Please select Current oil levels are no less than a quarter tank (1/4) " value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="SAFETYHeatingCurrentoilWODC" id="SAFETYHeatingCurrentoilWODC" data-validation-error-msg-container="#SAFETYHeatingCurrentoilWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="SAFETYHeatingCurrentoilWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="SAFETYHeatingCurrentoilError"></div>
+            </div>
+        </div>
+        
+        <hr />
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Propane heating tank gauge reads no less than 30% (CT Programs please refer tothe "Propane Tanks Chart"): </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingPropane" id="SAFETYHeatingPropaneYes" value="Yes" data-validation-error-msg-container="#SAFETYHeatingPropaneError" data-validation-error-msg="Please select Propane heating tank gauge reads no less than 30% (CT Programs please refer tothe "Propane Tanks Chart")" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingPropane" id="SAFETYHeatingPropaneNo" data-validation-error-msg-container="#SAFETYHeatingPropaneError" data-validation-error-msg="Please select Propane heating tank gauge reads no less than 30% (CT Programs please refer tothe "Propane Tanks Chart")" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYHeatingPropane" id="SAFETYHeatingPropaneNA" data-validation-error-msg-container="#SAFETYHeatingPropaneError" data-validation-error-msg="Please select Propane heating tank gauge reads no less than 30% (CT Programs please refer tothe "Propane Tanks Chart")" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" value="" name="SAFETYHeatingPropaneWODC" id="SAFETYHeatingPropaneWODC" data-validation-error-msg-container="#SAFETYHeatingPropaneWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="SAFETYHeatingPropaneWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="SAFETYHeatingPropaneError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="SAFETYHeatingPrevious" onclick="goPreviousForm('SAFETY', 'SAFETYNext', 'SAFETYPrevious');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="SAFETYHeatingNext">Next</button>
+        </div>
+    </section>
+</form>

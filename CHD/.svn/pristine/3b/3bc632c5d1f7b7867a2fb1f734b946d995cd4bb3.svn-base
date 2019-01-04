@@ -1,0 +1,40 @@
+﻿@{string appHomePage = System.Configuration.ConfigurationManager.AppSettings.Get("homePage");}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/images/favicon.png" />
+    <link href="~/iconfonts/mdi/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="~/Content/vendor.bundle.addons.css" rel="stylesheet" />
+    <link href="~/Content/vendor.bundle.base.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/snackbar.css" rel="stylesheet" />
+    @RenderSection("styles", false)
+</head>
+<body>
+<div id="snackbar"></div>
+<script>homePage = "@(appHomePage)";</script>
+    <div class="container-scroller">
+        @Html.Partial("_Header")
+        <div class="container-fluid page-body-wrapper">
+            @Html.Partial("_LeftPanel")
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+                @Html.Partial("_Footer")
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/vendor.bundle.base.js"></script>
+    <script src="~/Scripts/vendor.bundle.addons.js"></script>
+    <script src="~/Scripts/off-canvas.js"></script>
+    <script src="~/Scripts/misc.js"></script>
+    <script src="~/Scripts/dashboard.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

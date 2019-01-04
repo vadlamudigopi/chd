@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "Oops";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1 class="text-center"><i class="mdi mdi-emoticon-sad"></i> Oops...!</h1><br/><br/>
+

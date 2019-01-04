@@ -1,0 +1,78 @@
+﻿<form class="form-sample" id="BasicDetailsForm" data-id="ToxicSubstances" method="POST" enctype="multipart/form-data">
+    <section id="BasicDetails" class="SurveySection" style="display:block;">
+        <h4 class="card-title" style="font-size:16px;">Office Checklist</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">Name of Program:</label>
+                <div class="col-sm-5">
+                    <select class="form-control error" id="NameofProgram" name="NameofProgram" data-validation-error-msg-container="#NameofProgramError" data-validation-error-msg="Please select program" data-validation="required" onchange="GetLocations(this.value)" style="border-color: rgb(185, 74, 72);">
+                        <option value="">-- Select Program --</option>
+                        @Html.Raw(ViewBag.dropdown);
+                    </select>
+                    <span id="NameofProgramError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">Residence/Team:</label>
+                <div class="col-sm-5">
+                    <select name="Location" class="form-control" id="Location" data-validation-error-msg-container="#LocationError" data-validation-error-msg="Please select location" data-validation="required" onchange="GetAddress(this.value);">
+                        <option value="">--Select Residence/Team--</option>
+                    </select>
+                    <span id="LocationError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 DynamicAddress"></div>
+        <div class="col-md-12 form-group DynamicData"></div>
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">Date & Time of Review : </label>
+                <div class="col-sm-5">
+                    <input type="text" name="DateTimeofReview" id="DateTimeofReview" autocomplete="off" data-validation-error-msg-container="#DateofReviewError" data-validation-error-msg="Select Date of Review" class="form-control" data-validation="required" placeholder="MM/DD/YYYY" />
+                    <span id="DateofReviewError"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">The Review was:</label>
+                <div class="col-sm-5">
+                    <select name="Location" class="form-control" id="Location" data-validation-error-msg-container="#RviewError" data-validation-error-msg="Select The Review was" data-validation="required">
+                        <option value="">--Select The Review was--</option>
+                        <option value="Announced">Announced</option>
+                        <option value="Unannounced">Unannounced</option>
+                    </select>
+                    <span id="RviewError"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">This form is being completed by (First and last name): </label>
+                <div class="col-sm-5">
+                    <input type="text" value="" name="EmpName" id="EmpName" data-validation-error-msg-container="#EmpNameError" data-validation-error-msg="Enter First and last name of completing person" class="form-control" data-validation="required" />
+                    <span id="EmpNameError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-7 col-form-label">Position/Role of the person completing this form: </label>
+                <div class="col-sm-5">
+                    <input type="text" value="" name="EmpPosition" id="EmpPosition" data-validation-error-msg-container="#EmpPositionError" data-validation-error-msg="Enter Position/Role of the person completing this form" class="form-control" data-validation="required" />
+                    <span id="EmpPositionError"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="BasicDetailsPrev" style="display:none;" disabled>Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="BasicDetailsNext">Next</button>
+        </div>
+    </section>
+</form>

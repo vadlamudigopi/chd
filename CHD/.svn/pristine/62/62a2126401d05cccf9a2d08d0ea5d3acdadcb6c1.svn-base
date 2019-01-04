@@ -1,0 +1,81 @@
+﻿ <!-- partial:partials/_sidebar.html -->
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <ul class="nav">
+        <li class="nav-item nav-profile">
+            <div class="nav-link">
+                <div class="user-wrapper">
+                    <div class="profile-image">
+                        <img src="~/images/faces/face.jpg" alt="profile image">
+                    </div>
+                    <div class="text-wrapper">
+                        <p class="profile-name">@HttpContext.Current.Session["first_name"].ToString() @HttpContext.Current.Session["last_name"].ToString()</p>
+                        <div>
+                            <small class="designation text-muted">Director</small>
+                            <span class="status-indicator online"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "ResidentialDrill" ? "active" : "")">
+            <a class="nav-link" href="@Url.Action("Index","ResidentialDrill")">
+                <i class="menu-icon mdi mdi-format-list-bulleted-type"></i>
+                <span class="menu-title">Residential Drills</span>
+            </a>
+        </li>
+        <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "Emergency" ? "active" : "")">
+            <a class="nav-link" href="@Url.Action("SurveyList","Emergency")">
+                <i class="menu-icon mdi mdi-google-analytics"></i>
+                <span class="menu-title">Non-residential / Office Drills</span>
+            </a>
+        </li>
+        <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "ResidenceSurvey" ? "active" : "")">
+            <a class="nav-link" href="@Url.Action("List","ResidenceSurvey")">
+                <i class="menu-icon mdi mdi-chart-line"></i>
+                <span class="menu-title">Residence Checklist</span>
+            </a>
+        </li>
+        <li class="nav-item @(ViewContext.RouteData.Values["controller"].ToString() == "OfficeSurvey" ? "active" : "")">
+            <a class="nav-link" href="@Url.Action("List","OfficeSurvey")">
+                <i class="menu-icon mdi mdi-chart-donut-variant"></i>
+                <span class="menu-title">Office Checklist</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Index","Shelter")">
+                <i class="menu-icon mdi mdi-home"></i>
+                <span class="menu-title">Shelter Application</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="@Url.Action("Logout","User")">
+                <i class="menu-icon mdi mdi-lock"></i>
+                <span class="menu-title">Logout</span>
+            </a>
+        </li>
+        @*<li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+                <i class="menu-icon mdi mdi-restart"></i>
+                <span class="menu-title">User Pages</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                    </li>
+                </ul>
+            </div>
+        </li>*@
+    </ul>
+</nav>

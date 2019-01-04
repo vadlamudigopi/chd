@@ -1,0 +1,25 @@
+﻿<form class="form-sample" id="Exam_RoomsForm" method="POST" data-id="ExamRoom1" enctype="multipart/form-data">
+    <section id="Exam_Rooms" class="SurveySection">
+        <h4>Exam Rooms</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">No Of Exam Rooms:</label>
+                <div class="col-sm-3">
+                    <select name="NoOfExam_Rooms:" class="form-control" id="NoOfExam_Rooms" data-validation-error-msg-container="#NoOfExam_RoomsError" data-validation-error-msg="Select No Of ExamRooms" data-validation="required">
+                        <option value="">--Select No Of Exam Rooms--</option>
+                        <option value="-1">No Exam room</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <span id="NoOfExam_RoomsError"></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="Exam_RoomsPrevious" onclick="goPreviousForm('OfficesRoom1,OfficesRoom2,OfficesRoom3,OfficesRoom4', 'OfficesRoom1Next', 'OfficesRoom1Previous');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="Exam_RoomsNext">Next</button>
+        </div>
+    </section>
+</form>

@@ -1,0 +1,504 @@
+﻿<form class="form-sample" id="SAFETYForm" method="POST" enctype="multipart/form-data">
+    <section id="SAFETY" class="SurveySection">
+        <h4>SAFETY</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Emergency evacuation map is posted on the walls (Plan includes: Procedures for thescenarios related to “Fire”, “Power Outage”, “Severe Weather Conditions”: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYEmergency" id="SAFETYEmergencyYes" value="Yes" data-validation-error-msg-container="#SAFETYEmergencyError" data-validation-error-msg="Please select Emergency evacuation map is posted on the walls (Plan includes: Procedures for thescenarios related to “Fire”, “Power Outage”, “Severe Weather Conditions”" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYEmergency" id="SAFETYEmergencyNo" data-validation-error-msg-container="#SAFETYEmergencyError" data-validation-error-msg="Please select Emergency evacuation map is posted on the walls (Plan includes: Procedures for thescenarios related to “Fire”, “Power Outage”, “Severe Weather Conditions”" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYEmergency" id="SAFETYEmergencyNA" data-validation-error-msg-container="#SAFETYEmergencyError" data-validation-error-msg="Please select Emergency evacuation map is posted on the walls (Plan includes: Procedures for thescenarios related to “Fire”, “Power Outage”, “Severe Weather Conditions”" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYEmergencyWODC" id="SAFETYEmergencyWODC" data-validation-error-msg-container="#SAFETYEmergencyWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYEmergencyWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="SAFETYEmergencyError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Fire extinguishers are tagged with current YEAR write year: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFire" id="SAFETYFireYes" value="Yes" data-validation-error-msg-container="#SAFETYFireError" data-validation-error-msg="Please select Fire extinguishers are tagged with current YEAR write year" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFire" id="SAFETYFireNo" data-validation-error-msg-container="#SAFETYFireError" data-validation-error-msg="Please select Fire extinguishers are tagged with current YEAR write year" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFire" id="SAFETYFireNA" data-validation-error-msg-container="#SAFETYFireError" data-validation-error-msg="Please select Fire extinguishers are tagged with current YEAR write year" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYFireWODC" id="SAFETYFireWODC" data-validation-error-msg-container="#SAFETYFireWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYFireWODCError"></span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="SAFETYFireError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Fire extinguishers location are clear and unobstructed: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFireLocation" id="SAFETYFireLocationYes" value="Yes" data-validation-error-msg-container="#SAFETYFireLocationError" data-validation-error-msg="Please select Fire extinguishers location are clear and unobstructed" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFireLocation" id="SAFETYFireLocationNo" data-validation-error-msg-container="#SAFETYFireLocationError" data-validation-error-msg="Please select Fire extinguishers location are clear and unobstructed" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFireLocation" id="SAFETYFireLocationNA" data-validation-error-msg-container="#SAFETYFireLocationError" data-validation-error-msg="Please select Fire extinguishers location are clear and unobstructed" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYFireLocationWODC" id="SAFETYFireLocationWODC" data-validation-error-msg-container="#SAFETYFireLocationWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYFireLocationWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYFireLocationError"></div>
+        </div>
+    
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Doorways, stairways, hallways are clear no clutter: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYDoorways" id="SAFETYDoorwaysYes" value="Yes" data-validation-error-msg-container="#SAFETYDoorwaysError" data-validation-error-msg="Please select Doorways, stairways, hallways are clear no clutter" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYDoorways" id="SAFETYDoorwaysNo" data-validation-error-msg-container="#SAFETYDoorwaysError" data-validation-error-msg="Please select Doorways, stairways, hallways are clear no clutter" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYDoorways" id="SAFETYDoorwaysNA" data-validation-error-msg-container="#SAFETYDoorwaysError" data-validation-error-msg="Please select Doorways, stairways, hallways are clear no clutter" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYDoorwaysWODC" id="SAFETYDoorwaysWODC" data-validation-error-msg-container="#SAFETYDoorwaysWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYDoorwaysWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYDoorwaysError"></div>
+        </div>
+       
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">NO space heater in any location: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYNOSpace" id="SAFETYNOSpaceYes" value="Yes" data-validation-error-msg-container="#SAFETYNOSpaceError" data-validation-error-msg="Please select NO space heater in any location" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYNOSpace" id="SAFETYNOSpaceNo" data-validation-error-msg-container="#SAFETYNOSpaceError" data-validation-error-msg="Please select NO space heater in any location" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYNOSpace" id="SAFETYNOSpaceNA" data-validation-error-msg-container="#SAFETYNOSpaceError" data-validation-error-msg="Please select NO space heater in any location" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYNOSpaceWODC" id="SAFETYNOSpaceWODC" data-validation-error-msg-container="#SAFETYNOSpaceWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYNOSpaceWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYNOSpaceError"></div>
+        </div>
+     
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Electrical cords are in good repair no frayed or exposed wires: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYElectrical" id="SAFETYElectricalYes" value="Yes" data-validation-error-msg-container="#SAFETYElectricalError" data-validation-error-msg="Please select Electrical cords are in good repair no frayed or exposed wires" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYElectrical" id="SAFETYElectricalNo" data-validation-error-msg-container="#SAFETYElectricalError" data-validation-error-msg="Please select Electrical cords are in good repair no frayed or exposed wires" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYElectrical" id="SAFETYElectricalNA" data-validation-error-msg-container="#SAFETYElectricalError" data-validation-error-msg="Please select Electrical cords are in good repair no frayed or exposed wires" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYElectricalWODC" id="SAFETYElectricalWODC" data-validation-error-msg-container="#SAFETYElectricalWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYElectricalWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYElectricalError"></div>
+        </div>
+        <hr />
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Smoke/carbon detectors in place and operable and dated with last battery change: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSmokeCarbon" id="SAFETYSmokeCarbonYes" value="Yes" data-validation-error-msg-container="#SAFETYSmokeCarbonError" data-validation-error-msg="Please select Smoke/carbon detectors in place and operable and dated with last battery change" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSmokeCarbon" id="SAFETYSmokeCarbonNo" data-validation-error-msg-container="#SAFETYSmokeCarbonError" data-validation-error-msg="Please select Smoke/carbon detectors in place and operable and dated with last battery change" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSmokeCarbon" id="SAFETYSmokeCarbonNA" data-validation-error-msg-container="#SAFETYSmokeCarbonError" data-validation-error-msg="Please select Smoke/carbon detectors in place and operable and dated with last battery change" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYSmokeCarbonWODC" id="SAFETYSmokeCarbonWODC" data-validation-error-msg-container="#SAFETYSmokeCarbonWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYSmokeCarbonWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYSmokeCarbonError"></div>
+        </div>
+        <hr />
+        
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">First Aid kit is available and contains all adequate emergency supplies(No expiredsubstances): </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFirstAid" id="SAFETYFirstAidYes" value="Yes" data-validation-error-msg-container="#SAFETYFirstAidError" data-validation-error-msg="Please select First Aid kit is available and contains all adequate emergency supplies(No expiredsubstances)" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFirstAid" id="SAFETYFirstAidNo" data-validation-error-msg-container="#SAFETYFirstAidError" data-validation-error-msg="Please select First Aid kit is available and contains all adequate emergency supplies(No expiredsubstances)" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYFirstAid" id="SAFETYFirstAidNA" data-validation-error-msg-container="#SAFETYFirstAidError" data-validation-error-msg="Please select First Aid kit is available and contains all adequate emergency supplies(No expiredsubstances)" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYFirstAidWODC" id="SAFETYFirstAidWODC" data-validation-error-msg-container="#SAFETYFirstAidWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYFirstAidWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYFirstAidError"></div>
+        </div>
+        <hr />
+        
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Spill kit is available-contents NOT expired: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSpill" id="SAFETYSpillYes" value="Yes" data-validation-error-msg-container="#SAFETYSpillError" data-validation-error-msg="Please select question" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSpill" id="SAFETYSpillNo" data-validation-error-msg-container="#SAFETYSpillError" data-validation-error-msg="Please select question" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYSpill" id="SAFETYSpillNA" data-validation-error-msg-container="#SAFETYSpillError" data-validation-error-msg="Please select question" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYSpillWODC" id="SAFETYSpillWODC" data-validation-error-msg-container="#SAFETYSpillWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYSpillWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYSpillError"></div>
+        </div>
+        <hr />
+        
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">OSHA Compliance is posted: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYOSHA" id="SAFETYOSHAYes" value="Yes" data-validation-error-msg-container="#SAFETYOSHAError" data-validation-error-msg="Please select OSHA Compliance is posted" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYOSHA" id="SAFETYOSHANo" data-validation-error-msg-container="#SAFETYOSHAError" data-validation-error-msg="Please select OSHA Compliance is posted" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYOSHA" id="SAFETYOSHANA" data-validation-error-msg-container="#SAFETYOSHAError" data-validation-error-msg="Please select OSHA Compliance is posted" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYOSHAWODC" id="SAFETYOSHAWODC" data-validation-error-msg-container="#SAFETYOSHAWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYOSHAWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYOSHAError"></div>
+        </div>
+        <hr />
+        
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">There are no items blocking electrical fuse/circuit breaker box and fuse/circuit breakerbox is labeled: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYelectricalfuse" id="SAFETYelectricalfuseYes" value="Yes" data-validation-error-msg-container="#SAFETYelectricalfuseError" data-validation-error-msg="Please select There are no items blocking electrical fuse/circuit breaker box and fuse/circuit breakerbox is labeled" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYelectricalfuse" id="SAFETYelectricalfuseNo" data-validation-error-msg-container="#SAFETYelectricalfuseError" data-validation-error-msg="Please select There are no items blocking electrical fuse/circuit breaker box and fuse/circuit breakerbox is labeled" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYelectricalfuse" id="SAFETYelectricalfuseNA" data-validation-error-msg-container="#SAFETYelectricalfuseError" data-validation-error-msg="Please select There are no items blocking electrical fuse/circuit breaker box and fuse/circuit breakerbox is labeled" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYelectricalfuseWODC" id="SAFETYelectricalfuseWODC" data-validation-error-msg-container="#SAFETYelectricalfuseWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYelectricalfuseWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYelectricalfuseError"></div>
+        </div>
+        <hr />
+        
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">ALL railings are secure and in good repair and meet ADA standards: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYrailings" id="SAFETYrailingsYes" value="Yes" data-validation-error-msg-container="#SAFETYrailingsError" data-validation-error-msg="Please select ALL railings are secure and in good repair and meet ADA standards" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYrailings" id="SAFETYrailingsNo" data-validation-error-msg-container="#SAFETYrailingsError" data-validation-error-msg="Please select ALL railings are secure and in good repair and meet ADA standards" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SAFETYrailings" id="SAFETYrailingsNA" data-validation-error-msg-container="#SAFETYrailingsError" data-validation-error-msg="Please select ALL railings are secure and in good repair and meet ADA standards" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <input type="text" placeholder="Work Order Date/Comments" name="SAFETYrailingsWODC" id="SAFETYrailingsWODC" data-validation-error-msg-container="#SAFETYrailingsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="SAFETYrailingsWODCError"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-5" id="SAFETYrailingsError"></div>
+        </div>
+        <hr />
+        
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="SAFETYPrevious" onclick="goPreviousForm('HumanRights', 'HumanRightsNext', 'HumanRightsPrevious');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="SAFETYNext">Next</button>
+        </div>
+    </section>
+</form>
+

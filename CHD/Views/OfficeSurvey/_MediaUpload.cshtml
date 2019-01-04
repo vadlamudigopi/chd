@@ -1,0 +1,30 @@
+﻿<form class="form-sample" id="MediaUploadForm" method="POST" data-id="SurveyPreviewHTML" enctype="multipart/form-data">
+    <section id="MediaUpload" class="SurveySection">
+        <h4>Upload files</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label class="col-form-label">Photo of deficiencies or items that require maintenance:</label>
+                    <div id="prow0" style="display:flex;margin-bottom: 10px;">
+                        <div class="col-sm-10">
+                            <input type="file" id="files" name="files" class="form-control" />
+                        </div>
+                        <div class="col-sm-2 p-remove-btn">
+                        </div>
+                    </div>
+                    <!-- Button -->
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <a id="p-add-more" title="Add more" name="add-more" class="btn btn-icons btn-rounded btn-outline-success"><i class="mdi mdi-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <input type="hidden" name="completeFormData" id="completeFormData" />
+            <button type="button" class="btn btn-success btn-fw previous" id="MediaUploadPrevious" onclick="goPreviousForm('SAFETY', 'SAFETYNext', 'SAFETYPrevious');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="MediaUploadNext">Preview</button>
+        </div>
+    </section>
+</form>
