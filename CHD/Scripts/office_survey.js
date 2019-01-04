@@ -188,7 +188,7 @@ $("#SAFETYForm, #HumanRightsForm, #ExteriorDeckPorchWODCForm, #BasementForm, #Ex
     finalObjName = finalObjName.replace(" ", "_")
     finalObj[finalObjName] = createQJSON(this)
     console.log(finalObj);
-    var id = $(this).attr("data-id");
+    var id = $(this).attr("data-id") ;
     $("button").prop('disabled', true);
     $(".SurveySection").hide();
     if ($(this).attr("id") == "Bath_roomsForm") {
