@@ -1,0 +1,182 @@
+﻿a<form class="form-sample" id="ToxicSubstancesForm" method="POST" enctype="multipart/form-data">
+    <section id="ToxicSubstances" class="SurveySection">
+        <h4 class="card-title" style="font-size:16px;">Toxic Substances</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Not Accessible to residents/locked : </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ResidentsLocked" id="ResidentsLockedYes" value="Yes" data-validation-error-msg-container="#ResidentsLockedError" data-validation-error-msg="Please select Not Accessible to residents/locked" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ResidentsLocked" id="ResidentsLockedNo" data-validation-error-msg-container="#ResidentsLockedError" data-validation-error-msg="Please select Not Accessible to residents/locked" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="ResidentsLocked" id="ResidentsLockedNA" data-validation-error-msg-container="#ResidentsLockedError" data-validation-error-msg="Please select Not Accessible to residents/locked" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="row col-sm-3 row">
+                    <div class="col-sm-12">
+                        <input type="text" placeholder="Work Order Date/Comments" value="" name="ResidentsLockedWODC" id="ResidentsLockedWODC" data-validation-error-msg-container="#ResidentsLockedWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                        <span id="ResidentsLockedWODCError"></span>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="ResidentsLockedError"></div>
+            </div>
+        </div>
+        <hr />
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Appropriate storage/labeled as to content and antidote: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StorageLabeled" id="StorageLabeledYes" value="Yes" data-validation-error-msg-container="#StorageLabeledError" data-validation-error-msg="Please select Appropriate storage/labeled as to content and antidote" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StorageLabeled" id="StorageLabeledNo" data-validation-error-msg-container="#StorageLabeledError" data-validation-error-msg="Please select Appropriate storage/labeled as to content and antidote" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StorageLabeled" id="StorageLabeledNA" data-validation-error-msg-container="#StorageLabeledError" data-validation-error-msg="Please select Appropriate storage/labeled as to content and antidote" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 row">
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Work Order Date/Comments" name="StorageLabeledWODC" id="StorageLabeledWODC" data-validation-error-msg-container="#StorageLabeledWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                        <span id="StorageLabeledWODCError"></span>
+                    </div>                    
+                </div>
+                <div class="col-sm-5" id="StorageLabeledError"></div>
+            </div>
+
+        </div>
+        <hr />
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Poison control number posted by phones: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PoisonControlNumber" id="PoisonControlNumberYes" value="Yes" data-validation-error-msg-container="#PoisonControlNumberError" data-validation-error-msg="Please select Poison control number posted by phones" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PoisonControlNumber" id="PoisonControlNumberNo" data-validation-error-msg-container="#PoisonControlNumberError" data-validation-error-msg="Please select Poison control number posted by phones" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PoisonControlNumber" id="PoisonControlNumberNA" data-validation-error-msg-container="#PoisonControlNumberError" data-validation-error-msg="Please select Poison control number posted by phones" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 row">
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Work Order Date/Comments" name="PoisonControlNumberWODC" id="PoisonControlNumberWODC" data-validation-error-msg-container="#PoisonControlNumberWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                        <span id="PoisonControlNumberWODCError"></span>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="PoisonControlNumberError"></div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Stored independently - Not with medications or food : </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoredIndependently" id="StoredIndependentlyYes" value="Yes" data-validation-error-msg-container="#StoredIndependentlyError" data-validation-error-msg="Please select Stored independently - NOT with medications or food" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoredIndependently" id="StoredIndependentlyNo" data-validation-error-msg-container="#StoredIndependentlyError" data-validation-error-msg="Please select Stored independently - NOT with medications or food" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoredIndependently" id="StoredIndependentlyNA" data-validation-error-msg-container="#StoredIndependentlyError" data-validation-error-msg="Please select Stored independently - NOT with medications or food" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 row">
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Work Order Date/Comments" name="StoredIndependentlyWODC" id="StoredIndependentlyWODC" data-validation-error-msg-container="#StoredIndependentlyWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                        <span id="StoredIndependentlyWODCError"></span>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="StoredIndependentlyError"></div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Material Safety Sheets are available : </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="MaterialSafetySheets" id="MaterialSafetySheetsYes" value="Yes" data-validation-error-msg-container="#MaterialSafetySheetsError" data-validation-error-msg="Please select Material Safety Sheets are available" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="MaterialSafetySheets" id="MaterialSafetySheetsNo" data-validation-error-msg-container="#MaterialSafetySheetsError" data-validation-error-msg="Please select Material Safety Sheets are available" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="MaterialSafetySheets" id="MaterialSafetySheetsNA" data-validation-error-msg-container="#MaterialSafetySheetsError" data-validation-error-msg="Please select Material Safety Sheets are available" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3 row">
+                    <div class="col-md-12">
+                        <input type="text" placeholder="Work Order Date/Comments" name="MaterialSafetySheetsWODC" id="MaterialSafetySheetsWODC" data-validation-error-msg-container="#MaterialSafetySheetsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                        <span id="MaterialSafetySheetsWODCError"></span>
+                    </div>
+                </div>
+                <div class="col-sm-5" id="MaterialSafetySheetsError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="ToxicSubstancesPrevious" onclick="goPreviousForm('BasicDetails', 'BasicDetailsNext', 'BasicDetailsPrev');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="ToxicSubstancesNext">Next</button>
+        </div>
+    </section>
+</form>
+@*<script>
+    function validation(id) {
+        var check = $("#" + id).val();
+        if (check == "No") {
+            $("#ResidentsLockedError").fadeIn();
+            $("#ResidentsLockedWODC").attr('required', true);
+            $("#ResidentsLockedError").html("<center style='color:red'>Please select required field.<center>").fadeOut(6000);
+        } else {
+            $("#ResidentsLockedWODC").attr('required', false);
+        }
+    }
+    </script>*@

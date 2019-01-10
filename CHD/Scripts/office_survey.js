@@ -140,10 +140,30 @@ function goPreviousForm(previousSection, nextButton, previousButton) {
     $("#" + previousSection).show();
     $("#" + nextButton + ", #" + previousButton).prop('disabled', false);
     moveToTop();
-    breadcrumb();
+    breadcrumbBack();
 }
 /*Previous button logic*/
+function fileValidation(myFile) {
 
+    var ext = $(myFile).val().split('.').pop().toLowerCase();
+    if ($.inArray(ext, ['pdf', 'gif', 'png', 'jpg', 'jpeg']) == -1) {
+        alert('Please upload file having extensions .pdf/.jpeg/.jpg/.png/.gif only.');
+        setTimeout(function () {
+            $(myFile).val(null);
+            $(myFile).val('');
+        }, 200);
+        return false;
+    }
+
+    if (myFile.files[0].size > 10000000) {
+        alert("Please upload file less than 10MB. Thanks!!");
+        setTimeout(function () {
+            $(myFile).val(null);
+            $(myFile).val('');
+        }, 200);
+        return false;
+    }
+}
 function getFileDetails() {
     var names = "";
     $(':file').each(function () {
@@ -188,7 +208,7 @@ $("#SAFETYForm, #HumanRightsForm, #ExteriorDeckPorchWODCForm, #BasementForm, #Ex
     finalObjName = finalObjName.replace(" ", "_")
     finalObj[finalObjName] = createQJSON(this)
     console.log(finalObj);
-    var id = $(this).attr("data-id") ;
+    var id = $(this).attr("data-id");
     $("button").prop('disabled', true);
     $(".SurveySection").hide();
     if ($(this).attr("id") == "Bath_roomsForm") {
@@ -242,22 +262,6 @@ function getTitle(title) {
 function getEachRow(Label, Value) {
     return '<div class="col-md-12"><div class="form-group row"><label class="col-sm-7 col-form-label">' + Label + '</label><div class="col-sm-5">' + Value + '</div></div></div>';
 }
-function generatePreview() {
-    var html = "";
-    for (var key in finalObj) {
-        if (finalObj.hasOwnProperty(key)) {
-            html = html + getTitle(key);
-            var item = finalObj[key];
-            var innerHTML = "";
-            for (var innerkey in item) {
-                html = html + getEachRow(item[innerkey].label, item[innerkey].input)
-            }
-            html = html + "<hr/>";
-        }
-    }
-    $("#SurveyPreviewHTML").html(html);
-}
-
 
 $("#SurveyPreviewForm").submit(function (e) {
     $("#completeFormData").val(JSON.stringify(finalObj))
@@ -287,7 +291,7 @@ function createDynamicEle(section, inputs, button_section) {
                 var id = loop + 1;
                 var errorID = "";
                 var validationContainer = "";
-                var Bathroom = $("#" + section + "1").eq(0).clone().prop('id', section + id);
+                var Bathroom = $("#" + section + "1").eq(0).children().clone(false, false).prop('id', section + id);
                 Bathroom.find('h4').html(section + id);
                 Bathroom.find('input').each(function () {
                     validationContainer = $(this).attr("data-validation-error-msg-container");
@@ -320,13 +324,6 @@ function createDynamicEle(section, inputs, button_section) {
 
 
 $(document).ready(function () {
-    //printing page
-    $("#SurveyPreviewPrint").click(function () {
-        w = window.open();
-        w.document.write($('#SurveyPreviewHTML').html());
-        w.print();
-        w.close();
-    })
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {

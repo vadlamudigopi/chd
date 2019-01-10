@@ -1,0 +1,68 @@
+﻿$(document).ready(function () {
+    $('#residencySurveyList').DataTable({
+        dom: 'Bfrtip',
+        "columnDefs": [
+            {
+                "targets": [4,5,7,8],
+                "visible": false,
+                "searchable": false
+            }
+        ],
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                filename: "Residential Checklist",
+                title: "Residential Checklist",
+                text: 'Export',
+                //className: 'btn btn-success',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                },
+                customize: function (xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                }
+            }
+        ]
+    });
+
+
+    $("#residenceListPrint").click(function () {
+        $("#print_pdf").html($('#residenceSurveyWindow .modal-body').html());
+        $("#print_pdf").find("div").show();
+            w = window.open();
+            w.document.write($('#print_pdf').html());
+            w.print();
+            w.close();
+        $("#print_pdf").html("");
+    })
+    $('#residenceListPDF').click(function () {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            'div': function (element, renderer) {
+                element.show();
+            }
+        };
+        doc.addFileToVFS("../fonts/glyphicons-halflings-regular.ttf", 'glyphicons');
+        doc.addFont('../fonts/glyphicons-halflings-regular.ttf', 'glyphicons', 'normal');
+        doc.setFont('glyphicons'); // set font
+        doc.setFontSize(30);
+        doc.fromHTML($('#residenceSurveyWindow .modal-body').get(0), 15, 15, {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        });
+        //doc.autoPrint();
+        doc.save('Residential_Checklist.pdf');
+    });
+    $(".actionViewDetails").click(function () {
+        var uniqueId = $(this).attr("data-id");
+        $.ajax({
+            url: homePage + "ResidenceSurvey/view",
+            method: "POST",
+            data: { 'uniqueID': uniqueId },
+            success: function (result) {
+                $("#residenceSurveyWindow .modal-body").html(result);
+                $('#residenceSurveyWindow').modal('show');
+            }
+        });
+    })
+})

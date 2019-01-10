@@ -3,56 +3,8 @@ $.validate({
     lang: 'en'
 });
 
-//jQuery('#DateTimeofReview').datetimepicker({ format: 'd/m/Y h:m t' });
-$(function () {
-    $('#DateTimeofReview').daterangepicker({
-        timePicker: true,
-        maxDate: new Date(),
-        singleDatePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-            format: 'M/DD/YYYY h:mm a'
-        }
-    });
-});
-$(function () {
-    $('#DateofReview').daterangepicker({
+jQuery('#DateTimeofReview').datetimepicker({ maxDate: new Date(), ampm: true, step: 30, formatTime: 'g:i a', format: 'm/d/Y H:i' });
 
-        maxDate: new Date(),
-        singleDatePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-            format: 'M/DD/YYYY '
-        }
-    });
-});
-$(function () {
-    $('#TimeofReview').daterangepicker({
-        timePicker: true,
-        singleDatePicker: true,
-        startDate: moment().startOf('hour'),
-        endDate: moment().startOf('hour').add(32, 'hour'),
-        locale: {
-            format: 'hh:mm A '
-        }
-    }).on('show.daterangepicker', function (ev, picker) {
-        picker.container.find(".calendar-table").hide();
-    });
-});
-//$(function () {
-//    $('#TimeofReview').daterangepicker({
-//        timePicker: true,
-//        timePickerIncrement: 0,
-//        // timePickerSeconds: true,
-//        locale: {
-//            format: 'HH:mm A'
-//        }
-//    }).on('show.daterangepicker', function (ev, picker) {
-//        picker.container.find(".calendar-table").hide();
-//    });
-//});
 $('#TypeOfDrill').multiSelect({
     noneText: 'Select Drill Type'
 });
@@ -173,11 +125,38 @@ function goPreviousForm(previousSection, nextButton, previousButton) {
     $("button").prop('disabled', true);
     $(".SurveySection").hide();
     $("#" + previousSection).show();
+    if (previousSection == "Bathroom1") {
+        $("#Bathroom1ButtonSection").parent("form").find("section").show();
+    }
+    if (previousSection == "Bedroom")
+        $("#BeroomButtonSection").parent("form").find("section").show();
     $("#" + nextButton + ", #" + previousButton).prop('disabled', false);
     moveToTop();
-    breadcrumb();
+    breadcrumbBack();
 }
 /*Previous button logic*/
+
+function fileValidation(myFile) {
+
+    var ext = $(myFile).val().split('.').pop().toLowerCase();
+    if ($.inArray(ext, ['pdf', 'gif', 'png', 'jpg', 'jpeg']) == -1) {
+        alert('Please upload file having extensions .pdf/.jpeg/.jpg/.png/.gif only.');
+        setTimeout(function () {
+            $(myFile).val(null);
+            $(myFile).val('');
+        }, 200);
+        return false;
+    }
+
+    if (myFile.files[0].size > 10000000) {
+        alert("Please upload file less than 10MB. Thanks!!");
+        setTimeout(function () {
+            $(myFile).val(null);
+            $(myFile).val('');
+        }, 200);
+        return false;
+    }
+}
 
 function getFileDetails() {
     var names = "";
@@ -193,7 +172,7 @@ function getFileDetails() {
 function createQJSON(form) {
     var qJSON = [];
     $(form).find(".row").each(function () {
-        var label = $(this).find('label').html(); // This is the jquery object of the input, do what you will
+        var label = $(this).find('label').html();
         if (typeof label == "undefined")
             label = "";
         if ($(this).find("select").length > 0) {
@@ -281,6 +260,7 @@ $("#BathroomsForm").submit(function () {
     return false;
 });
 $("#Bathroom1Form").submit(function () {
+    //delete.finalObj.Bathroom1;
     finalObj["Bathroom1"] = createQJSON(this)
     $("button").prop('disabled', true);
     $(".SurveySection").hide();
@@ -316,6 +296,10 @@ function createBedrooms() {
         var id = loop + 1;
         var errorID = "";
         var validationContainer = "";
+        if ($("#Bedroom" + id).length) {
+            $("#Bedroom" + id).show();
+            continue;
+        }
         var Bathroom = $("#Bedroom").eq(0).clone().prop('id', 'Bedroom' + id);
         Bathroom.find('h4').html(" Bedroom " + id);
         Bathroom.find('input').each(function () {
@@ -411,24 +395,8 @@ function getTitle(title) {
     return '<h4 class="card-title" style="font-size:16px;"><i class="fa fa-pencil"></i>' + title + '</h4>';
 }
 function getEachRow(Label, Value) {
-    return '<div class="col-md-12"><div class="form-group row"><label class="col-sm-4 col-form-label">' + Label + '</label><div class="col-sm-5">' + Value + '</div></div></div>';
+    return '<div class="col-md-12"><div class="form-group row"><label class="col-sm-7 col-form-label">' + Label + '</label><div class="col-sm-5">' + Value + '</div></div></div>';
 }
-function generatePreview() {
-    var html = "";
-    for (var key in finalObj) {
-        if (finalObj.hasOwnProperty(key)) {
-            html = html + getTitle(key);
-            var item = finalObj[key];
-            var innerHTML = "";
-            for (var innerkey in item) {
-                html = html + getEachRow(item[innerkey].label, item[innerkey].input)
-            }
-            html = html + "<hr/>";
-        }
-    }
-    $("#SurveyPreviewHTML").html(html);
-}
-
 
 $("#SurveyPreviewForm").submit(function (e) {
     $("#completeFormData").val(JSON.stringify(finalObj))
@@ -445,6 +413,10 @@ function createBathrooms() {
         var id = loop + 1;
         var errorID = "";
         var validationContainer = "";
+        if ($('#Bathroom' + id).length) {
+            $("#Bathroom" + id).show();
+            continue;      //already div exist. No need to create again.
+        }
         var Bathroom = $("#Bathroom1").eq(0).clone().prop('id', 'Bathroom' + id);
         Bathroom.find('h4').html(" Bathroom " + id);
         Bathroom.find('input').each(function () {
@@ -463,13 +435,6 @@ function createBathrooms() {
 }
 
 $(document).ready(function () {
-    //printing page
-    $("#SurveyPreviewPrint").click(function () {
-        w = window.open();
-        w.document.write($('#SurveyPreviewHTML').html());
-        w.print();
-        w.close();
-    })
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('#pageScrollUp').fadeIn();

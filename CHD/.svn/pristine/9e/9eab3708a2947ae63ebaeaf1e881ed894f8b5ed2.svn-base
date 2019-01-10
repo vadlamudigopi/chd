@@ -1,0 +1,113 @@
+﻿using CHD.Models;
+using NReco.PdfGenerator;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+
+namespace CHD.Controllers
+{
+    [SessionCheck]
+    public class ResidenceSurveyController : Controller
+    {
+        // GET: ResidenceSurvey
+        public ActionResult Index()
+        {
+            try
+            {
+                var PM = new ProgramsModels();
+                string dropdown = PM.GetProgramList("Y");
+                ViewBag.dropdown = dropdown;
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+            return View();
+        }
+        [HttpPost]
+        public string view(string uniqueID)
+        {
+            string html = string.Empty;
+            try
+            {
+
+                var RS = new ResidencySurveyModel();
+                var CL = new commonLogic();
+                RS.where = " WHERE unique_id = '" + uniqueID + "'";
+                CL.dataTable = RS.select();
+                html = CL.ViewHtml();
+            }
+            catch (Exception e)
+            {
+                return html;
+            }
+            return html;
+        }
+        [HttpPost]
+        public ActionResult index(ResidencySurveyModel RS)
+        {
+            Boolean status;
+            try
+            {
+                status = RS.insert();
+            }
+            catch (Exception e)
+            {
+                status = false;
+            }
+            if (status)
+                return RedirectToAction("list", "ResidenceSurvey", new { msg = 8 });
+            else
+                return RedirectToAction("list", "ResidenceSurvey", new { msg = 9 });
+        }
+        public ActionResult list()
+        {
+            try
+            {
+                var RS = new ResidencySurveyModel();
+                var CL = new commonLogic();
+                CL.dataTable = RS.select();
+                CL.tableId = "residencySurveyList";
+                ViewBag.htmldata = CL.residenceSurveyGridView();
+            }
+            catch (Exception e)
+            {
+                return View();
+            }
+            return View();
+        }
+
+        [ValidateInput(false)]
+        public ActionResult GeneratePdf(string htmlContent)
+        {
+            var htmlToPdf = new HtmlToPdfConverter();
+            var pdfContentType = "application/pdf";
+            htmlToPdf.PageFooterHtml = $@"page <span class=""page""></span> of <span class=""topage""></span>";
+            htmlToPdf.Margins = new PageMargins { Top = 10, Bottom = 10, Left = 10, Right = 10 };
+            return File(htmlToPdf.GeneratePdf(htmlContent, null), pdfContentType);
+        }
+        public FileContentResult pdf()
+        {
+            string html = string.Empty;
+            var RS = new ResidencySurveyModel();
+            var CL = new commonLogic();
+            string uniqueId = (string)Request.QueryString["a"];
+            string page = (string)Request.QueryString["page"];
+            RS.where = " WHERE unique_id = '"+uniqueId+"'";
+            CL.dataTable = RS.select();
+            CL.pageType = page;
+            html = CL.ViewHtml();
+            string htmlContent= "<!DOCTYPE html><html lang='en'><head><style><style>body{font-family: 'Poppins', sans-serif;}.h5, h5 {font-size: 1rem; }hr{width: 100%;}hr {margin-top: 1rem;margin-bottom: 1rem;border: 0; border-top: 1px solid rgba(0, 0, 0, 0.1);}.col-md-12{width:100%;}.col-sm-8{width:60%; float:left;}.col-sm-4{width:40%;float:right;}</style></style></head><body>" + html + "</body></html>";
+            var htmlToPdf = new HtmlToPdfConverter();
+            var pdfContentType = "application/pdf";
+            htmlToPdf.PageFooterHtml = $@"page <span class=""page""></span> of <span class=""topage""></span>";
+            htmlToPdf.Margins = new PageMargins { Top = 10, Bottom = 10, Left = 10, Right = 10 };
+            return File(htmlToPdf.GeneratePdf(htmlContent, null), pdfContentType);
+        }
+    }
+
+
+}

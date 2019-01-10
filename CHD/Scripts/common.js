@@ -1,32 +1,87 @@
-﻿function moveToTop() {
+﻿function disableTextboxes() {
+    $(".SurveySection:visible").find("input[type='text']").prop("disabled", true);
+}
+function validateWorkOrder() {
+    var currentForm = $(".SurveySection:visible").parent("form").attr("id");
+    $('#' + currentForm + ' input[type="radio"]').click(function () {
+        var cls = $(this).closest(".row").find('input[type="text"]');
+        var errorDiv = cls.attr("data-validation-error-msg-container");
+        errorHtml = "";
+        if (this.value == "No") {
+            cls.attr({ "disabled": false, "data-validation": "required","value":'' });
+            $(errorDiv).addClass("has-error");
+
+            errorHtml = "<span class='help-block' style='font-size: 13px;color: red;'>Enter Work Order Date/Comments</span>";
+        } else {
+            cls.val("");
+            cls.attr({"disabled":true,"data-validation":""});            
+            $(errorDiv).removeClass("has-error");                       
+        }
+        
+        //$(errorDiv).html(errorHtml);
+        $("#" + currentForm).validate();
+    })
+}
+
+
+function generatePreview() {
+    var html = "";
+    var elementVal = "";
+    for (var key in finalObj) {
+        if (finalObj.hasOwnProperty(key)) {
+            html = html + getTitle(key);
+            var item = finalObj[key];
+            var innerHTML = "";
+            for (var innerkey in item) {
+                elementVal = item[innerkey].input;
+                if (item[innerkey].input == "No") {
+                    elementVal = "<span style='color: red;'>" + item[innerkey].input + "</span>";
+                }
+                html = html + getEachRow(item[innerkey].label, elementVal)
+            }
+            html = html + "<hr/>";
+        }
+    }
+    $("#SurveyPreviewHTML").html(html);
+}
+
+function moveToTop() {
     $('html, body').animate({ scrollTop: 0 }, 'slow');
 }
 function breadcrumb() {
-    $("#pageScrollUp, #pageScrollDown").hide()
-    var listli = "";
-    var completed = true;
-    $(".SurveySection").each(function () {
-        var active = "";
-        var title = $(this).find("h4").text();
-        if ($(this).css("display") == "block") {
-            completed = false;
-            active = "class='is-active'";
-        } else {
-            active = "";
-            if (completed)
-                active = "class='is-complete'";
-        }
-
-        if (title != "") {
-            listli = listli + '<li ' + active + '><span>' + title + '</span></li>';
-        }
-
-    });
-    $('.chd-progress-bar').html(listli);
-    //If is-active class applied to 2 li.
-    if ($('.chd-progress-bar li.is-active').length > 1) {
-        $('.chd-progress-bar li.is-active').eq(1).attr("class", "");
+    validateWorkOrder()
+    disableTextboxes();
+    $("#pageScrollUp, #pageScrollDown").hide();
+    var obj = $(".chd-progress-bar").find(".is-active");
+    if (obj.find("span").html() == "Bathrooms") {
+        var len = $("#Bathroom1Form .SurveySection:visible").length
+        obj.next().find("i").html("");
+        obj.next().find("i").html(parseInt(len) - 1);
     }
+    if (obj.find("span").html() == "Bedrooms") {
+        var len = $("#BedroomForm .SurveySection:visible").length
+        obj.next().find("i").html(parseInt(len) - 1);
+    }
+    if (obj.find("span").html() == "Offices, Conference, Counseling &amp; Group Rooms") {
+        var len = $("#OfficesRoomForm .SurveySection:visible").length
+        obj.next().find("i").html("");
+        obj.next().find("i").html(parseInt(len) - 1);
+    }
+    if (obj.find("span").html() == "Exam Rooms") {
+        var len = $("#ExamRoomForm .SurveySection:visible").length
+        obj.next().find("i").html(parseInt(len) - 1);
+    }
+    obj.removeClass("is-active");
+    obj.next().addClass("is-active");
+    obj.next().prevAll().addClass("is-complete");
+}
+function breadcrumbBack() {
+    $("#pageScrollUp, #pageScrollDown").hide();
+    var obj = $(".chd-progress-bar").find(".is-active");
+
+    obj.removeClass("is-active");
+    obj.prev().addClass("is-active");
+    obj.prev().prevAll().addClass("is-complete");
 }
 function showMessage(message) {
     removeHash();   //removing query stirng..

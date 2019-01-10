@@ -1,0 +1,12 @@
+﻿<form class="form-sample" id="SurveyPreviewForm" method="POST" enctype="multipart/form-data">
+    <section id="SurveyPreviewHTML" class="SurveySection">               
+    </section>
+    <section id="SurveyPreview" class="SurveySection">
+        <h4>Review</h4>
+        <div class="col-md-12">            
+            <button type="button" class="btn btn-success btn-fw previous" id="SurveyPreviewPrevious" onclick="goPreviousForm('MediaUpload', 'MediaUploadNext', 'MediaUploadPrevious');">Previous</button>
+            <button type="button" class="btn btn-success btn-fw" id="SurveyPreviewPrint">Print</button>
+            <button type="submit" class="btn btn-success btn-fw" id="SurveyPreviewNext">Submit</button>
+        </div>
+    </section>
+</form>

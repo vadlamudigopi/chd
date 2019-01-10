@@ -1,0 +1,276 @@
+﻿<form class="form-sample" id="BasementForm" method="POST" data-id="ExteriorDeckPorchWODC" enctype="multipart/form-data">
+    <section id="Basement" class="SurveySection">
+        <h4>BASEMENT/ STORAGE AREA</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Well lit – fixtures are in good repair and covered: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWellLit" id="BasementWellLitYes" value="Yes" data-validation-error-msg-container="#BasementWellLitError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWellLit" id="BasementWellLitNo" data-validation-error-msg-container="#BasementWellLitError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWellLit" id="BasementWellLitNA" data-validation-error-msg-container="#BasementWellLitError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+        <div class="col-md-12">
+            <div class="row">
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementWellLitWODC" id="BasementWellLitWODC" data-validation-error-msg-container="#BasementWellLitWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementWellLitWODCError"></span>
+            </div>
+        </div>
+                </div>
+                <div class="col-sm-5" id="BasementWellLitError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Walls are in good repair : No holes: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWalls" id="BasementWallsYes" value="Yes" data-validation-error-msg-container="#BasementWallsError" data-validation-error-msg="Please select Walls are in good repair : NO holes" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWalls" id="BasementWallsNo" data-validation-error-msg-container="#BasementWallsError" data-validation-error-msg="Please select Walls are in good repair : NO holes" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementWalls" id="BasementWallsNA" data-validation-error-msg-container="#BasementWallsError" data-validation-error-msg="Please select Walls are in good repair : NO holes" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+        <div class="col-md-12">
+            <div class="row">
+                
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementWallsWODC" id="BasementWallsWODC" data-validation-error-msg-container="#BasementWallsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementWallsWODCError"></span>
+                
+            </div>
+        </div>
+                </div>
+                <div class="col-sm-5" id="BasementWallsError"></div>
+            </div>
+        </div>
+<hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Ceiling is in good repair – No holes: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementCeiling" id="BasementCeilingYes" value="Yes" data-validation-error-msg-container="#BasementCeilingError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes " data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementCeiling" id="BasementCeilingNo" data-validation-error-msg-container="#BasementCeilingError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes " value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementCeiling" id="BasementCeilingNA" data-validation-error-msg-container="#BasementCeilingError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes " value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+<div class="col-md-12">
+            <div class="row">               
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementCeilingWODC" id="BasementCeilingWODC" data-validation-error-msg-container="#BasementCeilingWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementCeilingWODCError"></span>
+            </div>
+        </div>
+                </div>
+                <div class="col-sm-5" id="BasementCeilingError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Doors latch and are in good repair – No broken hinges, locks or holes: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementDoors" id="BasementDoorsYes" value="Yes" data-validation-error-msg-container="#BasementDoorsError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementDoors" id="BasementDoorsNo" data-validation-error-msg-container="#BasementDoorsError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementDoors" id="BasementDoorsNA" data-validation-error-msg-container="#BasementDoorsError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">        <div class="col-md-12">
+            <div class="row">               
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementDoorsWODC" id="BasementDoorsWODC" data-validation-error-msg-container="#BasementDoorsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementDoorsWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="BasementDoorsError"></div>
+            </div>
+        </div>
+<hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Floor is in good repair: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementFloor" id="BasementFloorYes" value="Yes" data-validation-error-msg-container="#BasementFloorError" data-validation-error-msg="Please select Floor is in good repair" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementFloor" id="BasementFloorNo" data-validation-error-msg-container="#BasementFloorError" data-validation-error-msg="Please select Floor is in good repair" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementFloor" id="BasementFloorNA" data-validation-error-msg-container="#BasementFloorError" data-validation-error-msg="Please select Floor is in good repair" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">                                
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementFloorWODC" id="BasementFloorWODC" data-validation-error-msg-container="#BasementFloorWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementFloorWODCError"></span>                
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="BasementFloorError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Baseboaitems are stored neatly on shelves: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementBaseboaItems" id="BasementBaseboaItemsYes" value="Yes" data-validation-error-msg-container="#BasementBaseboaItemsError" data-validation-error-msg="Please select BaseboaItems are stored neatly on shelves" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementBaseboaItems" id="BasementBaseboaItemsNo" data-validation-error-msg-container="#BasementBaseboaItemsError" data-validation-error-msg="Please select BaseboaItems are stored neatly on shelves" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementBaseboaItems" id="BasementBaseboaItemsNA" data-validation-error-msg-container="#BasementBaseboaItemsError" data-validation-error-msg="Please select BaseboaItems are stored neatly on shelves" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">
+                
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementBaseboaItemsWODC" id="BasementBaseboaItemsWODC" data-validation-error-msg-container="#BasementBaseboaItemsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementBaseboaItemsWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="BasementBaseboaItemsError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Humidity - Not damp, musty: </label>
+                <div class="col-sm-3" style="display:flex;">
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementHumidity" id="BasementHumidityYes" value="Yes" data-validation-error-msg-container="#BasementHumidityError" data-validation-error-msg="Please select Humidity- NOT damp, musty" data-validation="required"> Yes
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementHumidity" id="BasementHumidityNo" data-validation-error-msg-container="#BasementHumidityError" data-validation-error-msg="Please select Humidity- NOT damp, musty" value="No"> No
+                        </label>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top:auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="BasementHumidity" id="BasementHumidityNA" data-validation-error-msg-container="#BasementHumidityError" data-validation-error-msg="Please select Humidity- NOT damp, musty" value="NA"> N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3"><div class="col-md-12">
+            <div class="row">                
+                    <input type="text" placeholder="Work Order Date/Comments" name="BasementHumidityWODC" id="BasementHumidityWODC" data-validation-error-msg-container="#BasementHumidityWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="BasementHumidityWODCError"></span>
+            </div>
+        </div></div>
+                <div class="col-sm-5" id="BasementHumidityError"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="BasementPrevious" onclick="goPreviousForm('ExamRoom1,ExamRoom2,ExamRoom3,ExamRoom4', 'ExamRoom1Next', 'ExamRoom1Previous');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="BasementNext">Next</button>
+        </div>
+    </section>
+</form>

@@ -1,18 +1,35 @@
 ﻿$(document).ready(function () {
-    $('#residencySurveyList').DataTable();
-    $("#residenceListPrint").click(function () {
-        w = window.open();
-        w.document.write($('#residenceSurveyWindow .modal-body').html());
-        w.print();
-        w.close();
-    })
-    $('#residenceListPDF').click(function () {
-        var obj = new jsPDF();
-        obj.fromHTML($('#residenceSurveyWindow .modal-body').get(0), 10, 10, { 'width': 180 });
-        obj.save('Residential_Checklist.pdf');
+    $('#residencySurveyList').DataTable({
+        dom: 'Bfrtip',
+        "columnDefs": [
+            {
+                "targets": [4,5,7,8],
+                "visible": false,
+                "searchable": false
+            }
+        ],
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                filename: "Residential Checklist",
+                title: "Residential Checklist",
+                text: 'Export',
+                //className: 'btn btn-success',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                },
+                customize: function (xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                }
+            }
+        ]
     });
+
     $(".actionViewDetails").click(function () {
+  
         var uniqueId = $(this).attr("data-id");
+        $("#summaryLink").attr({ "href": homePage+ "ResidenceSurvey/pdf/?page=summary&a="+uniqueId });
+        $("#fullLink").attr({ "href": homePage + "ResidenceSurvey/pdf/?page=full&a=" + uniqueId });
         $.ajax({
             url: homePage + "ResidenceSurvey/view",
             method: "POST",

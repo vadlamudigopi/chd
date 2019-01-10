@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "CHD Compliance application";
+    string appHomePage = System.Configuration.ConfigurationManager.AppSettings.Get("homePage");
+}
+@section styles {
+    <link href="~/Content/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/buttons.dataTables.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>    
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script src="~/Scripts//jspdf.min.js"></script>
+    <script src="~/Scripts/html2canvas.js"></script>
+    <script src="~/Scripts/office_survey_list.js"></script>
+}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+    <div class="card-body">
+        <div>
+            <div style="float:right;margin: 5px;"><button type="button" class="btn btn-success btn-fw" onclick="window.location.href='@(appHomePage)OfficeSurvey/Index'">
+            <i class="mdi mdi-check"></i>Add Checklist</button></div><h4 class="card-title">Office Checklist</h4>
+        </div>
+        <div class="table-responsive">
+        @Html.Raw(ViewBag.htmldata)        
+        </div>
+    </div>
+    </div>
+</div>
+<!--- Print/PDF window --->
+<div id="print_pdf"></div>
+<!--- Print/PDF window --->
+<!--- modal window --->
+<div id="officeSurveyWindow" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="chd modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="chd modal-title">Office Checklist
+                    <button style="float:right;margin-top:-5px" type="button" title="Print" class="btn btn-icons btn-rounded btn-outline-success" id="officeListPrint"><i class="mdi mdi-printer"></i></button>
+                    <button style="float:right;margin-top:-5px;margin-right:5px" title="Download" type="button" class="btn btn-icons btn-rounded btn-outline-success" id="officeListPDF"><i class="mdi mdi-cloud-download"></i></button>&nbsp;&nbsp;
+                </h4>
+            </div>
+            <div class="chd modal-body"></div>
+        </div>
+    </div>
+</div>
+<!--- modal window --->

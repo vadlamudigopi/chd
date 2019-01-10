@@ -1,0 +1,64 @@
+﻿$(document).ready(function () {
+    $('#officeSurveyList').DataTable({
+        dom: 'Bfrtip',
+        "columnDefs": [
+            {
+                "targets": [4, 5, 7, 8],
+                "visible": false,
+                "searchable": false
+            }
+        ],
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                filename: "Office Checklist",
+                title: "Office Checklist",
+                text: 'Export',
+                //className: 'btn btn-success',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+                },
+                customize: function (xlsx) {
+                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                }
+            }
+        ]
+    });
+
+    $("#officeListPrint").click(function () {
+        $("#print_pdf").html($('#officeSurveyWindow .modal-body').html());
+        $("#print_pdf").find("div").show();
+            w = window.open();
+            w.document.write($('#print_pdf').html());
+            w.print();
+            w.close();
+        $("#print_pdf").html("");
+    })
+    $('#officeListPDF').click(function () {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            'div': function (element, renderer) {
+                element.show();
+            }
+        };
+
+        doc.fromHTML($('#officeSurveyWindow .modal-body').get(0), 15, 15, {
+            'width': 170,
+            'elementHandlers': specialElementHandlers
+        });
+        doc.save('Office_Checklist.pdf');
+
+    });
+    $(".actionViewDetails").click(function () {
+        var uniqueId = $(this).attr("data-id");
+        $.ajax({
+            url: homePage + "OfficeSurvey/view",
+            method: "POST",
+            data: { 'uniqueID': uniqueId },
+            success: function (result) {
+                $("#officeSurveyWindow .modal-body").html(result);
+                $('#officeSurveyWindow').modal('show');
+            }
+        });
+    })
+})

@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "CHD Compliance application";
+}
+
+
+@section styles {
+    <link rel="Stylesheet" type="text/css" href="~/Content/jquery.datetimepicker.css" />
+<link rel="Stylesheet" type="text/css" href="~/Content/progress_bar.css" />
+<style>
+    .scrollup, .scrolldown {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        bottom: 50px;
+        right: 100px;
+        display: none;
+    }
+
+    input[type="file"] {
+        display: block;
+    }
+
+    .imageThumb {
+        max-height: 96px;
+        border: 2px solid;
+        padding: 1px;
+        cursor: pointer;
+    }
+
+    .pip {
+        display: inline-block;
+        margin: 10px 10px 0 0;
+    }
+
+    .remove {
+        display: block;
+        background: #444;
+        border: 1px solid black;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        .remove:hover {
+            background: white;
+            color: black;
+        }
+</style>
+}
+
+@section Scripts {
+    <script src="~/Scripts/jquery.form-validator.min.js"></script>
+<script src="~/Scripts/jquery.datetimepicker.js"></script>
+<script src="~/Scripts/jquery.multi-select.min.js"></script>
+<script src="~/Scripts/office_survey.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var pnext = 0;
+        $("#p-add-more").click(function (e) {
+            e.preventDefault();
+            var addto = "#prow" + pnext;
+            var addRemove = "#prow" + (pnext) + " .p-remove-btn";
+            pnext = pnext + 1;
+            var newIn = ' <div id="prow' + pnext + '"style="display:flex;margin-bottom: 10px;"><div class="col-sm-10"><input onchange="return fileValidation(this)" type="file" id="files" name="files" class="form-control" multiple /></div><div class="col-sm-2 p-remove-btn"></div></div>';
+            var newInput = $(newIn);
+            var removeBtn = '<a id="remove' + (pnext - 1) + '" class="btn btn-icons cbtn-sm btn-rounded btn-outline-danger p-remove-me"><i class="mdi mdi-delete"></i></a>';
+            var removeButton = $(removeBtn);
+            $(addto).after(newInput);
+            $(addRemove).append(removeButton);
+            $("#pfield" + pnext).attr('data-source', $(addto).attr('data-source'));
+            $("#count").val(pnext);
+
+            $('.p-remove-me').click(function (e) {
+                e.preventDefault();
+                var pfieldNum = this.id.charAt(this.id.length - 1);
+                var pfieldID = "#prow" + pfieldNum;
+                $(this).remove();
+                $(pfieldID).remove();
+            });
+        });
+    });
+</script>
+
+}
+<div class="col-12 grid-margin">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="chd-progress-bar">
+                        <li class="is-active"><span>Office Checklist</span></li>
+                        <li><span>Toxic Substances</span></li>
+                        <li><span>Kitchens &amp; Dining</span></li>
+                        <li><span>Common Areas</span></li>
+                        <li><span>WAITING ROOM/RECEPTION AREA</span></li>
+                        <li><span>Bathrooms</span></li>
+                        <li><span>Bathroom <i>1</i></span></li>
+                        <li><span>Offices, Conference, Counseling &amp; Group Rooms</span></li>
+                        <li><span>Offices Room - <i>1</i></span></li>
+                        <li><span>Exam Rooms</span></li>
+                        <li><span>Exam Room - <i>1</i></span></li>
+                        <li><span>BASEMENT/ STORAGE AREA</span></li>
+                        <li><span>Exterior</span></li>
+                        <li><span>Human Rights</span></li>
+                        <li><span>SAFETY</span></li>
+                        <li><span>Upload files</span></li>
+                        <li><span>Preview</span></li>
+                    </ol>
+                </div>
+            </div>
+            @{Html.RenderPartial("_BasicDetails");}
+            @{Html.RenderPartial("_ToxicSubstances");}
+            @{Html.RenderPartial("_KitchensANDDining");}
+            @{Html.RenderPartial("_CommonLivingSpaces");}
+            @{Html.RenderPartial("_WAITINGROOM");}
+            @{Html.RenderPartial("_Bathrooms");}
+            @{Html.RenderPartial("_Bathroom1");}
+            @{Html.RenderPartial("_OfficesRooms");}
+            @{Html.RenderPartial("_OfficesRoom");}
+            @{Html.RenderPartial("_ExamRooms");}
+            @{Html.RenderPartial("_ExamRoom");}
+            @{Html.RenderPartial("_Basement");}
+            @{Html.RenderPartial("_Exterior");}
+            @{Html.RenderPartial("_HumanRights");}
+            @{Html.RenderPartial("_SAFETY");}
+            @{Html.RenderPartial("_MediaUpload");}
+            @{Html.RenderPartial("_Preview");}
+
+
+        </div>
+    </div>
+</div>
+<a href="#" class="scrollup" id="pageScrollUp">
+    <img src="~/images/movetotop.jpg" width="40px" /></a>
+<a href="#" class="scrolldown" id="pageScrollDown">
+    <img src="~/images/movetobottom.jpg" width="40px" /></a>
+
+

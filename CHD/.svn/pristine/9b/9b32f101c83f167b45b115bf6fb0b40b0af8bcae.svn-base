@@ -1,0 +1,605 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CHD;
+using System.Data;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
+using System.Data.SqlClient;
+using System.Globalization;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
+using System.Net.Mail;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
+
+public class commonLogic
+{
+    string homePage = "";
+    string cs = "";
+    public DataTable ddData;
+    public string val;
+    public string text;
+    public string selectedVal;
+    public DataSet dropDownData;
+    public DataTable dataTable;
+    public string[] tableHeadings;
+    public string[] tableColumns;
+    public string tableId = "";
+    public string pageType = "";
+
+    public commonLogic()
+    {
+        homePage = System.Configuration.ConfigurationManager.AppSettings.Get("homePage");
+        cs = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
+    }
+    public string GetDrillShift(string DateTimeofDrill)
+    {
+        string shift = "-";
+        try
+        {
+            DateTime DrillDate = DateTime.ParseExact(DateTimeofDrill, "MM/dd/yyyy HH:mm", CultureInfo.InvariantCulture);
+            TimeSpan DrillDateTime = DrillDate.TimeOfDay;
+            TimeSpan Shift1start = new TimeSpan(7, 0, 0);
+            TimeSpan Shift1end = new TimeSpan(15, 0, 0);
+            TimeSpan Shift2start = new TimeSpan(15, 0, 0);
+            TimeSpan Shift2end = new TimeSpan(23, 0, 0);
+            TimeSpan Shift3start = new TimeSpan(23, 0, 0);
+            TimeSpan Shift3end = new TimeSpan(7, 0, 0);
+            if (DrillDateTime >= Shift1start && DrillDateTime < Shift1end)
+            {
+                shift = "1";
+            }
+            else if (DrillDateTime >= Shift2start && DrillDateTime < Shift2end)
+            {
+                shift = "2";
+            }
+            else
+            {
+                shift = "3";
+            }
+        }
+        catch (Exception e)
+        {
+            getLog("error getting status resdential_drill_log " + e);
+        }
+        return shift;
+    }
+    public string setDurationOfDrill(string DurationofdrillMinutes, string DurationofdrillSeconds)
+    {
+        string duration = null;
+        if(DurationofdrillMinutes == null || DurationofdrillSeconds == null)
+            return duration;
+        else
+            duration = DurationofdrillMinutes+":"+DurationofdrillSeconds;
+
+        return duration;
+    }
+    public string GetDrillStatus(string reportForQuanterEnding, string DateTimeofDrill, string TypeOfDrill, string Durationofdrill)
+    {
+        var CL = new commonLogic();
+        string status = "Fail";
+        try
+        {
+            if (Durationofdrill != null)
+            {
+
+                double seconds = TimeSpan.Parse(Durationofdrill).TotalMinutes;  //convert to seconds
+
+                if (TypeOfDrill == "Fire" && seconds < 150)
+                {
+                    status = "Pass";
+                }
+                if (TypeOfDrill != "Fire")
+                {
+                    status = "Pass";
+                }
+            }
+            else
+            {
+                status = "Pass";
+            }
+        }
+        catch (Exception e)
+        {
+            CL.getLog("error getting status resdential_drill_log " + e);
+        }
+        return status;
+    }
+    public string buildEmergencyHTML(DataTable emergencyLogData, DataTable emergencyClientData, DataTable emergencyParticipantsData)
+    {
+        string html = "";
+        string clientHTML = "";
+        string participantHTML = "";
+        try
+        {
+            string folderPath = System.Configuration.ConfigurationManager.AppSettings.Get("homePage") + System.Configuration.ConfigurationManager.AppSettings.Get("uploadFolder");
+            html += "<p>Name of Program : <label class='chd-answer'>" + emergencyLogData.Rows[0]["name_of_program"].ToString() + "</label></p>";
+            html += "<p>Location : <label class='chd-answer'>" + emergencyLogData.Rows[0]["program_location"].ToString() + "</label></p>";
+            html += "<p>Address : <label class='chd-answer'>" + emergencyLogData.Rows[0]["site_address"].ToString() + "</label></p>";
+            html += "<p>Table Top Drill : <label class='chd-answer'>" + emergencyLogData.Rows[0]["Evacuation"].ToString() + "</label></p>";
+            html += "<p>Type of Drill : <label class='chd-answer'>" + emergencyLogData.Rows[0]["type_of_drill"].ToString() + "</label></p>";
+            html += "<p>Drill Date : <label class='chd-answer'>" + emergencyLogData.Rows[0]["drill_date"].ToString() + "</label></p>";
+            html += "<p>Duration of Drill : <label class='chd-answer'>" + emergencyLogData.Rows[0]["duration_of_drill"].ToString() + "</label></p>";
+            html += "<p>Drill Status : <label class='chd-answer'>" + emergencyLogData.Rows[0]["drill_status"].ToString() + "</label></p>";
+            html += "<p>Person conducting drill/training : <label class='chd-answer'>" + emergencyLogData.Rows[0]["person_conducted"].ToString() + "</label></p>";            
+            html += "<p>Were program participants involved : <label class='chd-answer'>" + emergencyLogData.Rows[0]["program_participants_involved"].ToString() + "</label></p>";
+            if (emergencyClientData.Rows.Count > 0)
+            {
+                clientHTML += "<div class='col-lg-12 grid-margin stretch-card'><div class='card'><div class='card-body'><div class='table-responsive'><table class='table'><thead><tr><th>Name</th><th>Time</th><th>Prompt Level</th><th>Comments</th></tr></thead><tbody>";
+                foreach (DataRow row in emergencyClientData.Rows)
+                {
+                    clientHTML += "<tr>";
+                    clientHTML += "<td>" + row["client_name"].ToString() + "</td>";
+                    clientHTML += "<td>" + row["evacuation_time"].ToString() + "</td>";
+                    clientHTML += "<td>" + row["prompt_level"].ToString() + "</td>";
+                    clientHTML += "<td>" + row["comments"].ToString() + "</td>";
+                    clientHTML += "</tr>";
+                }
+                clientHTML += "</tbody></table></div></div></div></div>";
+            }
+            html += clientHTML;
+            html += "<p>Staff who participated in the drill/training :</p>";
+            if (emergencyParticipantsData.Rows.Count > 0)
+            {
+                participantHTML += "<div class='col-lg-12 grid-margin stretch-card'><div class='card'><div class='card-body'><div class='table-responsive'><table class='table'><thead><tr><th>Name</th><th>Title</th></tr></thead><tbody>";
+                foreach (DataRow row in emergencyParticipantsData.Rows)
+                {
+                    participantHTML += "<tr>";
+                    participantHTML += "<td>" + row["participant_name"].ToString() + "</td>";
+                    participantHTML += "<td>" + row["participant_title"].ToString() + "</td>";
+                    participantHTML += "</tr>";
+                }
+                participantHTML += "</tbody></table></div></div></div></div>";
+            }
+            html += participantHTML;
+
+            html += "<p><strong>Emergency Procedure checklist</strong></p>";
+            html += "<p>All employees and clients evacuate under 2 ½ minutes: <label class='chd-answer'>" + emergencyLogData.Rows[0]["ec_evcuate"].ToString() + "</label></p>";
+            html += "<p>All staff and clients accounted for at the designated evacuation location :  <label class='chd-answer'>" + emergencyLogData.Rows[0]["sc_accounted"].ToString() + "</label></p>";
+            html += "<p>Were people left in the building who did not move to a safe location? : <label class='chd-answer'>" + emergencyLogData.Rows[0]["people_left"].ToString() + "</label></p>";
+            html += "<p>Were the emergency procedures followed for the appropriate Disaster (fire, severe weather, power failure, evacuation)? : <label class='chd-answer'>" + emergencyLogData.Rows[0]["emergency_disaster"].ToString() + "</label></p>";
+            html += "<p>Does the policy/procedure(s) need to be changed to enhance safety? : <label class='chd-answer'>" + emergencyLogData.Rows[0]["pp_enhance_safety"].ToString() + "</label></p>";
+
+            html += "<p>Report completed by : <label class='chd-answer'>" + emergencyLogData.Rows[0]["report_completed_name"].ToString() + "</label></p>";
+            html += "<p>Date completed : <label class='chd-answer'>" + emergencyLogData.Rows[0]["completed_date"].ToString() + "</label></p>";
+            html += "<p>Drill outcome reported to safety, performance improvement or management team on : <label class='chd-answer'>" + emergencyLogData.Rows[0]["improvement_date"].ToString() + "</label></p>";
+            html += "<p>Survey Upload : <a href='" + folderPath + "/" + emergencyLogData.Rows[0]["upload_survey"].ToString() + "' target='_blank'>" + emergencyLogData.Rows[0]["upload_survey"].ToString() + "</label></p>";
+        }
+        catch (Exception e)
+        {
+            return html;
+        }
+        return html;
+    }
+    public string buildResidentialHTML(DataTable residentialData)
+    {
+        string html = "";
+        try
+        {
+            string folderPath = System.Configuration.ConfigurationManager.AppSettings.Get("homePage") + System.Configuration.ConfigurationManager.AppSettings.Get("uploadFolder");
+            html += "<p>Name of Program : <label class='chd-answer'>" + residentialData.Rows[0]["name_of_program"].ToString() + "</label></p>";
+            html += "<p>Location : <label class='chd-answer'>" + residentialData.Rows[0]["program_location"].ToString() + "</label></p>";
+            html += "<p>Address : <label class='chd-answer'>" + residentialData.Rows[0]["program_address"].ToString() + "</label></p>";
+            html += "<p>Table Top Drill : <label class='chd-answer'>" + residentialData.Rows[0]["evacuation"].ToString() + "</label></p>";
+            html += "<p>Type of Drill : <label class='chd-answer'>" + residentialData.Rows[0]["type_of_drill"].ToString() + "</label></p>";                      
+            html += "<p>Date & Time of Drill : <label class='chd-answer'>" + residentialData.Rows[0]["date_time_of_drill"].ToString() + "</label></p>";
+            html += "<p>Duration of drill : <label class='chd-answer'>" + residentialData.Rows[0]["duration_of_drill"].ToString() + "</label></p>";
+            html += "<p>Drill Status : <label class='chd-answer'>" + residentialData.Rows[0]["drill_status"].ToString() + "</label></p>";
+            html += "<p>Staff participated in Drill : <label class='chd-answer'>" + residentialData.Rows[0]["name_of_staff"].ToString() + "</label></p>";            
+            html += "<p>Program Staff Ratio : <label class='chd-answer'>" + residentialData.Rows[0]["staff_ratio"].ToString() + "</label></p>";
+            html += "<p>Table Top: scenario : <label class='chd-answer'>" + residentialData.Rows[0]["drill_scenario"].ToString() + "</label></p>";
+            html += "<p>Why the Client did not meet required timelines : <label class='chd-answer'>" + residentialData.Rows[0]["building_exit"].ToString() + "</label></p>";
+            html += "<p>Which means of Egress was blocked? : <label class='chd-answer'>" + residentialData.Rows[0]["egress_was_blocked"].ToString() + "</label></p>";            
+            html += "<p>If the drill was an evacuation to secondary location, indicate which location this was:  : <label class='chd-answer'>" + residentialData.Rows[0]["secondary_location"].ToString() + "</label></p>";
+            html += "<p>Staff Signature (Staff who conducted drill) : <label class='chd-answer'>" + residentialData.Rows[0]["staff_signature"].ToString() + "</label></p>";
+            html += "<p>Staff Signature (Staff who conducted drill) Date : <label class='chd-answer'>" + residentialData.Rows[0]["staff_signature_date"].ToString() + "</label></p>";
+            html += "<p>Supervisor Signature : <label class='chd-answer'>" + residentialData.Rows[0]["supervisor_signature"].ToString() + "</label></p>";
+            html += "<p>Supervisor Signature Date : <label class='chd-answer'>" + residentialData.Rows[0]["supervisor_signature_date"].ToString() + "</label></p>";
+            html += "<p>Survey Upload : <a href='" + folderPath + "/" + residentialData.Rows[0]["upload_survey"].ToString() + "' target='_blank'>" + residentialData.Rows[0]["upload_survey"].ToString() + "</label></p>";
+        }
+        catch (Exception e)
+        {
+            return html;
+        }
+        return html;
+    }
+    public void getLog(string msg)
+    {
+        try
+        {
+            msg = msg.Replace("\"", "\\\""); //escpaing double quotes
+            string query = "insert into LOG4NETLOG (DATE,THREAD,LEVEL,LOGGER,MESSAGE,EXCEPTION) values(current_timestamp,'CHD App','INFO','APP','" + msg + "','-')";
+            SqlCommand command;
+            SqlDataReader dataReader;
+            var DB = connect();
+            command = new SqlCommand(query, DB);
+            dataReader = command.ExecuteReader();
+            dataReader.Close();
+            command.Dispose();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+    public SqlConnection connect()
+    {
+        SqlConnection cnn;
+        cnn = new SqlConnection(cs);
+        cnn.Open();
+        return cnn;
+    }
+    public string createDropDown()
+    {
+        string dropDown = "";
+        string selected = "";
+        if (this.ddData != null)
+        {
+            foreach (DataRow dr in this.ddData.Rows)
+            {
+                selected = (selectedVal != "" && selectedVal == dr[this.val].ToString()) ? "selected" : "";
+                dropDown += "<option value='" + dr[this.val] + "' " + selected + ">" + dr[this.text] + "</option>";
+
+            }
+        }
+        return dropDown;
+    }
+    public string createDropDownfromDataSet()
+    {
+        string dropDown = "";
+        foreach (DataTable table in this.dropDownData.Tables)
+        {
+            ddData = table;
+            dropDown = this.createDropDown();
+            return dropDown;
+        }
+        return dropDown;
+    }
+
+    public int buildHeading()
+    {
+        if (dataTable != null)
+        {
+            int colcnt = dataTable.Columns.Count;
+            tableHeadings = new string[colcnt];
+            foreach (DataRow row in dataTable.Rows)
+            {
+                int j = 0;
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    if (column.ColumnName != string.Empty)
+                    {
+                        tableHeadings[j] = column.ColumnName;
+                        j = j + 1;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+    public static string gridHeadings(string[] headings)
+    {
+        string heads = "<thead><tr>";
+        foreach (string eachHeading in headings)
+        {
+            heads += "<th>" + eachHeading + "</th>";
+        }
+        heads += "</tr></thead>";
+        return heads;
+    }
+
+    public string buildGridView()
+    {
+        string dataHTML = "";
+        if (dataTable != null)
+        {
+            if (tableHeadings == null)
+            {
+
+                buildHeading();
+            }
+            dataHTML = "<table id='" + tableId + "' class='table table-hover table-bordered' width='100%' cellspacing='0'>" + gridHeadings(tableHeadings) + "<tbody>";
+            foreach (DataRow row in dataTable.Rows)
+            {
+                dataHTML = dataHTML + "<tr>";
+                object rowId = null;
+                if (tableColumns != null && tableColumns.Length > 0)
+                {
+                    foreach (string column in tableColumns)
+                    {
+                        object item = row[column];
+                        dataHTML = dataHTML + buildActionColumn(item.ToString(), column);
+                        if (rowId == null)
+                        {
+                            rowId = item;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DataColumn column in dataTable.Columns)
+                    {
+                        object item = row[column];
+                        dataHTML = dataHTML + buildActionColumn(item.ToString(), column.ToString());
+                        if (rowId == null)
+                        {
+                            rowId = item;
+                        }
+                    }
+                }
+                dataHTML += "</tr>";
+            }
+            dataHTML = dataHTML + "</table>";
+
+        }
+        return dataHTML;
+    }
+    public string gethtml(string value)
+    {
+        return "<td>" + value + "</td>";
+    }
+
+    public string residenceSurveyGridView()
+    {
+        string dataHTML = "";
+        string colName, columnID = string.Empty;
+        if (dataTable != null)
+        {
+            string headings = "<thead><tr><th>Unique Id</th><th>Name of Program</th><th>Team Or Residence</th><th>Address</th><th>Division</th><th>Licensing Body</th><th>Checklist Date</th><th>Position/Role of the person</th><th>completed by</th><th>Action</th></tr></thead>";
+            dataHTML = "<table id='" + tableId + "' class='table table-hover table-bordered' width='100%' cellspacing='0'>" + headings + "<tbody>";
+            foreach (DataRow row in dataTable.Rows)
+            {
+                dataHTML = dataHTML + "<tr>";
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    colName = column.ToString();
+                    if (colName == "unique_id")
+                    {
+                        columnID = row[column].ToString();
+                        dataHTML += gethtml(columnID);
+                    }
+                    else if (colName == "JSONArray")
+                    {
+                        JObject json = JObject.Parse(row[column].ToString());
+                        foreach (var x in json)
+                        {
+                            var PageTitle = x.Key;
+                            foreach (var val in x.Value)
+                            {
+                                if (val["label"].ToString() == "Position/Role of the person completing this form: " || 
+                                    val["label"].ToString() == "This form is being completed by (First and last name): " || 
+                                    val["label"].ToString() == "Licensing Body:" || 
+                                    val["label"].ToString() == "Division:" || 
+                                    val["label"].ToString() == "Name of Program:" || 
+                                    val["label"].ToString() == "Residence/Team:" || 
+                                    val["label"].ToString() == "Address:" || 
+                                    val["label"].ToString() == "Date &amp; Time of Review : ")
+                                {
+                                    dataHTML += gethtml(val["input"].ToString());
+                                }
+                            }
+
+                        }
+                    }
+                }
+                dataHTML += "<td><button type='button' data-id='" + columnID + "' class='btn btn-icons btn-inverse-success actionViewDetails'><i class='mdi mdi-printer'></i></button></td></tr>";
+            }
+            dataHTML = dataHTML + "</table>";
+
+        }
+        return dataHTML;
+    }
+    public string mediaHTML(string files)
+    {
+        JObject json = JObject.Parse(files);
+        string links = "";
+        foreach (var x in json)
+        {
+            string FileName = x.Value.ToString();
+            links += "<p><a style='color:black' target='_blank' href='" + homePage + "upload/" + FileName + "'>" + FileName + "</a></p>";
+        }
+        return "<div class='col-md-12'><div class='form-group row'><label class='col-sm-7 col-form-label'>Photo of deficiencies or items that require maintenance:</label><div class='col-sm-5'>" + links + "</div></div></div>";
+        
+    }
+    public string getFileName()
+    {
+        string fileName = "test";
+        string ProgrameName = string.Empty;
+        string residence = string.Empty;
+        string dateTime = string.Empty;
+        string row = dataTable.Rows[0]["JSONArray"].ToString();
+        JObject json = JObject.Parse(row);
+        try
+        {
+            foreach (var x in json)
+            {
+                var PageTitle = x.Key;
+                if (PageTitle == "Residence_Survey" || PageTitle == "Office_Checklist")
+                {
+                    foreach (var val in x.Value)
+                    {
+                        if(val["label"].ToString() == "Name of Program:") 
+                            ProgrameName = val["input"].ToString();
+                        else if(val["label"].ToString() == "Residence/Team:")
+                            residence = val["input"].ToString();
+                        else if (val["label"].ToString() == "Date &amp; Time of Review : ")
+                            dateTime = val["input"].ToString();
+                    }
+                }
+            }
+            string[] dates = dateTime.Split(' ');
+            fileName = ProgrameName.Replace(" ", "_") + "_" + residence.Replace(" ", "_") + "_" + dates[0].Replace("/", "_");
+            if (pageType == "summary")
+                fileName = fileName + "_" + pageType;
+        }
+        catch (Exception e)
+        {
+            return fileName;
+        }
+        return fileName;
+
+    }
+    public string ViewHtml()
+    {
+        string row = dataTable.Rows[0]["JSONArray"].ToString();
+        string files = dataTable.Rows[0]["files"].ToString();
+        JObject json = JObject.Parse(row);
+        string dataHTML = string.Empty;
+        string display = string.Empty;
+        string innerHTML = string.Empty;
+        string wordOrder = string.Empty;
+        bool flagDisplayNone;
+        try
+        {
+            dataHTML += "<div class='col-md-12'><div class='form-group row'><label class='col-sm-8 col-form-label'>Name: </label><div class='col-sm-4'>" + HttpContext.Current.Session["first_name"].ToString() + " " + HttpContext.Current.Session["last_name"].ToString() + "</div></div></div>";
+            foreach (var x in json)
+            {
+                var PageTitle = x.Key;
+                dataHTML += "<h5>"+PageTitle.Replace("_"," ")+"</h5>";
+                innerHTML = "";
+                flagDisplayNone = true;
+                foreach (var val in x.Value)
+                {
+                    if (wordOrder == "yes" && val["label"].ToString() == "Work Order Date/Comments")
+                    {
+                        innerHTML += "<div class='col-md-12'><div class='form-group row'><label class='col-sm-8 col-form-label'>" + val["label"].ToString() + "</label><div class='col-sm-4'>" + val["input"].ToString() + "</div></div></div>";
+                        wordOrder = "no";
+                    }
+                    else
+                    {
+                        switch (PageTitle)
+                        {
+                            case "MediaUpload":
+                                innerHTML += mediaHTML(files);
+                                flagDisplayNone = false;
+                                break;
+                            case "Residence_Survey":
+                            case "Bathrooms":
+                            case "Bedrooms":
+                                innerHTML += "<div class='col-md-12'><div class='form-group row'><label class='col-sm-8 col-form-label'>" + val["label"].ToString() + "</label><div class='col-sm-4'>" + val["input"].ToString() + "</div></div></div>";
+                                flagDisplayNone = false;
+                                break;
+                            default:
+                                display = "none";
+                                if (pageType == "full")
+                                {
+                                    display = "block";
+                                    flagDisplayNone = false;
+                                    wordOrder = "yes";
+                                }
+                                else
+                                {
+                                    if (pageType == "summary" && val["input"].ToString() == "No")
+                                    {
+                                        display = "block";
+                                        flagDisplayNone = false;
+                                        wordOrder = "yes";
+                                    }
+                                }
+                                innerHTML += "<div class='col-md-12' style='display:" + display + "'><div class='form-group row'><label class='col-sm-8 col-form-label'>" + val["label"].ToString() + "</label><div class='col-sm-4'>" + val["input"].ToString() + "</div></div></div>";
+                                break;
+                        }
+                    }
+
+                }
+                if (flagDisplayNone == true)
+                    innerHTML +=  "<div class='col-md-12'><div class='form-group row'><div class='col-sm-12'>No Data Available</div></div></div>"; ;
+                dataHTML += innerHTML;
+                dataHTML += "<hr/>";
+            }
+        }
+        catch (Exception e)
+        {
+            return dataHTML;
+        }
+        return dataHTML;
+    }
+    public string buildActionColumn(string columnValue, string column)
+    {
+        string actionHTML = "<td>";
+        if (column == "Unique ID")
+        {
+            actionHTML += "<span style='cursor:pointer' class='clickUniqueId'>" + columnValue + "</span>";
+        }
+        else if (column == "Drill Status")
+        {
+            if (columnValue == "Pass")
+            {
+                actionHTML += "<button type='button' class='btn btn-success btn-fw'><i class='mdi mdi-check'></i>Pass</button>";
+            }
+            else if (columnValue == "Fail")
+            {
+                actionHTML += "<button type='button' class='btn btn-danger btn-fw'><i class='mdi mdi-alert-outline'></i>Fail</button>";
+            }
+        }
+        else
+        {
+            switch (columnValue)
+            {
+                case "***ActionEmergencyModel***":
+                case "***ActionResidentialDrillLog***":
+                    actionHTML += "<button type='button' class='btn btn-icons btn-inverse-success actionViewDetails'><i class='mdi mdi-printer'></i></button>";
+                    break;
+                case "":
+                case null:
+                    actionHTML += "&nbsp;";
+                    break;
+
+                default:
+                    actionHTML += columnValue;
+                    break;
+            }
+        }
+        actionHTML += "</td>";
+        return actionHTML;
+    }
+
+    public string SendEmail(String From, String To, String Subject, String Body)
+    {
+        var mailMsg = new MailMessage();
+        //msg.To.Add("to2@gmail.com");
+        mailMsg.IsBodyHtml = true;
+        mailMsg.From = new MailAddress(From);
+        mailMsg.To.Add(To);
+        mailMsg.Headers.Add("Reply-To", From);
+        mailMsg.Subject = Subject;
+        mailMsg.Body = Body;
+        var smtpClient = new SmtpClient("smtp.gmail.com", 587);
+        smtpClient.UseDefaultCredentials = false;
+        smtpClient.Credentials = new NetworkCredential("vasu.nanguluri@gmail.com", "Chogan14!@#");
+        smtpClient.EnableSsl = true;
+        smtpClient.Send(mailMsg);
+        return "Email Sended Successfully";
+    }
+
+
+    public string GetUniqueKey(int size)
+    {
+        char[] chars =
+            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".ToCharArray();
+        byte[] data = new byte[size];
+        using (RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider())
+        {
+            crypto.GetBytes(data);
+        }
+        StringBuilder result = new StringBuilder(size);
+        foreach (byte b in data)
+        {
+            result.Append(chars[b % (chars.Length)]);
+        }
+        return result.ToString();
+    }
+    public class JSONObject
+    {
+        public HumanRights[] Field { get; set; }
+    }
+    public class HumanRights
+    {
+        public string label { get; set; }
+        public string input { get; set; }
+    }
+}

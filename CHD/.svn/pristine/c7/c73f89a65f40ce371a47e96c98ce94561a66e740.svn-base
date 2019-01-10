@@ -1,0 +1,862 @@
+﻿<form class="form-sample" id="KitchensANDDiningForm" data-id="CommonLivingSpaces" method="POST" enctype="multipart/form-data">
+    <section id="KitchensANDDining" class="SurveySection">
+        <h4 class="card-title" style="font-size: 16px;">Kitchens & Dining</h4>
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Refrigerator/stove/ dishwasher/microwave are in working order: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorStoveDishwasherMicrowave" id="RefrigeratorStoveDishwasherMicrowaveYes" value="Yes" data-validation-error-msg-container="#RefrigeratorStoveDishwasherMicrowaveError" data-validation-error-msg="Please select Refrigerator/stove/ dishwasher/microwave are in working order" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorStoveDishwasherMicrowave" id="RefrigeratorStoveDishwasherMicrowaveNo" data-validation-error-msg-container="#RefrigeratorStoveDishwasherMicrowaveError" data-validation-error-msg="Please select Refrigerator/stove/ dishwasher/microwave are in working order" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorStoveDishwasherMicrowave" id="RefrigeratorStoveDishwasherMicrowaveNA" data-validation-error-msg-container="#RefrigeratorStoveDishwasherMicrowaveError" data-validation-error-msg="Please select Refrigerator/stove/ dishwasher/microwave are in working order" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="RefrigeratorStoveDishwasherMicrowaveWODC" id="RefrigeratorStoveDishwasherMicrowaveWODC" data-validation-error-msg-container="#RefrigeratorStoveDishwasherMicrowaveWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="RefrigeratorStoveDishwasherMicrowaveWODCError"></span>
+                </div>                
+                <div class="col-sm-12" id="RefrigeratorStoveDishwasherMicrowaveError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Counters are clean, in good repair and organized items neatly in place : </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CountersClean" id="CountersCleanYes" value="Yes" data-validation-error-msg-container="#CountersCleanError" data-validation-error-msg="Please select Counters are clean, in good repair and organized items neatly in place" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CountersClean" id="CountersCleanNo" data-validation-error-msg-container="#CountersCleanError" data-validation-error-msg="Please select Counters are clean, in good repair and organized items neatly in place" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CountersClean" id="CountersCleanNA" data-validation-error-msg-container="#CountersCleanError" data-validation-error-msg="Please selectCounters are clean, in good repair and organized items neatly in place" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="CountersCleanWODC" id="CountersCleanWODC" data-validation-error-msg-container="#CountersCleanWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="CountersCleanWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="CountersCleanError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Cupboard/drawers are clean, organized and in good repair: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CupboardDrawers" id="CupboardDrawersYes" value="Yes" data-validation-error-msg-container="#CupboardDrawersError" data-validation-error-msg="Please select Cupboard/drawers are clean, organized and in good repair" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CupboardDrawers" id="CupboardDrawersNo" data-validation-error-msg-container="#CupboardDrawersError" data-validation-error-msg="Please select Cupboard/drawers are clean, organized and in good repair" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CupboardDrawers" id="CupboardDrawersNA" data-validation-error-msg-container="#CupboardDrawersError" data-validation-error-msg="Please selectCupboard/drawers are clean, organized and in good repair" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="CupboardDrawersWODC" id="CupboardDrawersWODC" data-validation-error-msg-container="#CupboardDrawersWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="CupboardDrawersWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="CupboardDrawersError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Refrigerator is clean and items organized: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorClean" id="RefrigeratorCleanYes" value="Yes" data-validation-error-msg-container="#RefrigeratorCleanError" data-validation-error-msg="Please select Refrigerator is clean and items organized" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorClean" id="RefrigeratorCleanNo" data-validation-error-msg-container="#RefrigeratorCleanError" data-validation-error-msg="Please select Refrigerator is clean and items organized" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RefrigeratorClean" id="RefrigeratorCleanNA" data-validation-error-msg-container="#RefrigeratorCleanError" data-validation-error-msg="Please select Refrigerator is clean and items organized" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="RefrigeratorCleanWODC" id="RefrigeratorCleanWODC" data-validation-error-msg-container="#RefrigeratorCleanWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="RefrigeratorCleanWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="RefrigeratorCleanError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Freezer is clean and items organized: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FreezerClean" id="FreezerCleanYes" value="Yes" data-validation-error-msg-container="#FreezerCleanError" data-validation-error-msg="Please select Freezer is clean and items organized" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FreezerClean" id="FreezerCleanNo" data-validation-error-msg-container="#FreezerCleanError" data-validation-error-msg="Please select Freezer is clean and items organized" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FreezerClean" id="FreezerCleanNA" data-validation-error-msg-container="#FreezerCleanError" data-validation-error-msg="Please select Freezer is clean and items organized" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="FreezerCleanWODC" id="FreezerCleanWODC" data-validation-error-msg-container="#FreezerCleanWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="FreezerCleanWODCError"></span>
+                </div>
+                <div class="col-sm-12" id="FreezerCleanError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Stove/oven/ microwave are clean: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoveOvenMicrowave" id="StoveOvenMicrowaveYes" value="Yes" data-validation-error-msg-container="#StoveOvenMicrowaveError" data-validation-error-msg="Please select Stove/oven/ microwave are clean" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoveOvenMicrowave" id="StoveOvenMicrowaveNo" data-validation-error-msg-container="#StoveOvenMicrowaveError" data-validation-error-msg="Please select Stove/oven/ microwave are clean" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="StoveOvenMicrowave" id="StoveOvenMicrowaveNA" data-validation-error-msg-container="#StoveOvenMicrowaveError" data-validation-error-msg="Please select Stove/oven/ microwave are clean" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="StoveOvenMicrowaveWODC" id="StoveOvenMicrowaveWODC" data-validation-error-msg-container="#StoveOvenMicrowaveWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="StoveOvenMicrowaveWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="StoveOvenMicrowaveError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+
+        <hr />
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Sink area is neat –No dirty dishes: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SinkAreaNeat" id="SinkAreaNeatYes" value="Yes" data-validation-error-msg-container="#SinkAreaNeatError" data-validation-error-msg="Please select Sink area is neat –no dirty dishes" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SinkAreaNeat" id="SinkAreaNeatNo" data-validation-error-msg-container="#SinkAreaNeatError" data-validation-error-msg="Please select Sink area is neat –no dirty dishes" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="SinkAreaNeat" id="SinkAreaNeatNA" data-validation-error-msg-container="#SinkAreaNeatError" data-validation-error-msg="Please select Sink area is neat –no dirty dishes" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input placeholder="Work Order Date/Comments" type="text" value="" name="SinkAreaNeatWODC" id="SinkAreaNeatWODC" data-validation-error-msg-container="#SinkAreaNeatWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="SinkAreaNeatWODCError"></span>
+
+                </div>
+                
+                <div class="col-sm-12" id="SinkAreaNeatError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Light switches/outlets are operable and in good condition: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="LightSwitchesOutlets" id="LightSwitchesOutletsYes" value="Yes" data-validation-error-msg-container="#LightSwitchesOutletsError" data-validation-error-msg="Please select Light switches/outlets are operable and in good condition" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="LightSwitchesOutlets" id="LightSwitchesOutletsNo" data-validation-error-msg-container="#LightSwitchesOutletsError" data-validation-error-msg="Please select Light switches/outlets are operable and in good condition" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="LightSwitchesOutlets" id="LightSwitchesOutletsNA" data-validation-error-msg-container="#LightSwitchesOutletsError" data-validation-error-msg="Please select Light switches/outlets are operable and in good condition" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="LightSwitchesOutletsWODC" id="LightSwitchesOutletsWODC" data-validation-error-msg-container="#LightSwitchesOutletsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="LightSwitchesOutletsWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="LightSwitchesOutletsError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">No Sharps / knives are accessible: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="NoSharpsKnives" id="NoSharpsKnivesYes" value="Yes" data-validation-error-msg-container="#NoSharpsKnivesError" data-validation-error-msg="Please select No Sharps / knives are accessible" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="NoSharpsKnives" id="NoSharpsKnivesNo" data-validation-error-msg-container="#NoSharpsKnivesError" data-validation-error-msg="Please select No Sharps / knives are accessible" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="NoSharpsKnives" id="NoSharpsKnivesNA" data-validation-error-msg-container="#NoSharpsKnivesError" data-validation-error-msg="Please select No Sharps / knives are accessible" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="NoSharpsKnivesWODC" id="NoSharpsKnivesWODC" data-validation-error-msg-container="#NoSharpsKnivesWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="NoSharpsKnivesWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="NoSharpsKnivesError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Walls are clean and in good repair : No holes, graffiti, scuff marks: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WallsClean" id="WallsCleanYes" value="Yes" data-validation-error-msg-container="#WallsCleanError" data-validation-error-msg="Please select Walls are clean and in good repair : NO holes, graffiti, scuff marks" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WallsClean" id="WallsCleanNo" data-validation-error-msg-container="#WallsCleanError" data-validation-error-msg="Please select Walls are clean and in good repair : NO holes, graffiti, scuff marks" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WallsClean" id="WallsCleanNA" data-validation-error-msg-container="#WallsCleanError" data-validation-error-msg="Please select Walls are clean and in good repair : NO holes, graffiti, scuff marks" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="WallsCleanWODC" id="WallsCleanWODC" data-validation-error-msg-container="#WallsCleanWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="WallsCleanWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="WallsCleanError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Ceiling is in good repair – No holes, peeling paint, graffiti: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CeilingGood" id="CeilingGoodYes" value="Yes" data-validation-error-msg-container="#CeilingGoodError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes, peeling paint, graffiti" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CeilingGood" id="CeilingGoodNo" data-validation-error-msg-container="#CeilingGoodError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes, peeling paint, graffiti" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="CeilingGood" id="CeilingGoodNA" data-validation-error-msg-container="#CeilingGoodError" data-validation-error-msg="Please select Ceiling is in good repair – NO holes, peeling paint, graffiti" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="CeilingGoodWODC" id="CeilingGoodWODC" data-validation-error-msg-container="#CeilingGoodWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="CeilingGoodWODCError"></span>
+
+
+                </div>
+                <div class="col-sm-12" id="CeilingGoodError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Floor is in good repair – No rips/stains or unglued from wall/floor : </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FloorGood" id="FloorGoodYes" value="Yes" data-validation-error-msg-container="#FloorGoodError" data-validation-error-msg="Please select Floor is in good repair – NO rips/stains or unglued from wall/floor" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FloorGood" id="FloorGoodNo" data-validation-error-msg-container="#FloorGoodError" data-validation-error-msg="Please select Floor is in good repair – NO rips/stains or unglued from wall/floor" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="FloorGood" id="FloorGoodNA" data-validation-error-msg-container="#FloorGoodError" data-validation-error-msg="Please select Floor is in good repair – NO rips/stains or unglued from wall/floor" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="FloorGoodWODC" id="FloorGoodWODC" data-validation-error-msg-container="#FloorGoodWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="FloorGoodWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="FloorGoodError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Doors latch and are in good repair – No broken hinges, locks or holes: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="DoorsLatch" id="DoorsLatchYes" value="Yes" data-validation-error-msg-container="#DoorsLatchError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="DoorsLatch" id="DoorsLatchNo" data-validation-error-msg-container="#DoorsLatchError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="DoorsLatch" id="DoorsLatchNA" data-validation-error-msg-container="#DoorsLatchError" data-validation-error-msg="Please select Doors latch and are in good repair – NO broken hinges, locks or holes" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="DoorsLatchWODC" id="DoorsLatchWODC" data-validation-error-msg-container="#DoorsLatchWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="DoorsLatchWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="DoorsLatchError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Pictures/wall hangings are hung and in good condition : </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PicturesWall" id="PicturesWallYes" value="Yes" data-validation-error-msg-container="#PicturesWallError" data-validation-error-msg="Please select Pictures/wall hangings are hung and in good condition " data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PicturesWall" id="PicturesWallNo" data-validation-error-msg-container="#PicturesWallError" data-validation-error-msg="Please select Pictures/wall hangings are hung and in good condition " value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="PicturesWall" id="PicturesWallNA" data-validation-error-msg-container="#PicturesWallError" data-validation-error-msg="Please select Pictures/wall hangings are hung and in good condition " value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="PicturesWallWODC" id="PicturesWallWODC" data-validation-error-msg-container="#PicturesWallWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="PicturesWallWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="PicturesWallError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+
+        <hr />
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Windows are in good repair and operable: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowsGood" id="WindowsGoodYes" value="Yes" data-validation-error-msg-container="#WindowsGoodError" data-validation-error-msg="Please select Windows are in good repair and operable" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowsGood" id="WindowsGoodNo" data-validation-error-msg-container="#WindowsGoodError" data-validation-error-msg="Please select Windows are in good repair and operable" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowsGood" id="WindowsGoodNA" data-validation-error-msg-container="#WindowsGoodError" data-validation-error-msg="Please select Windows are in good repair and operable" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="WindowsGoodWODC" id="WindowsGoodWODC" data-validation-error-msg-container="#WindowsGoodWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="WindowsGoodWODCError"></span>
+
+
+                </div>
+                <div class="col-sm-12" id="WindowsGoodError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Window screens are on the windows and in good repair: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowScreens" id="WindowScreensYes" value="Yes" data-validation-error-msg-container="#WindowScreensError" data-validation-error-msg="Please select Window screens are on the windows and in good repair" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowScreens" id="WindowScreensNo" data-validation-error-msg-container="#WindowScreensError" data-validation-error-msg="Please select Window screens are on the windows and in good repair" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowScreens" id="WindowScreensNA" data-validation-error-msg-container="#WindowScreensError" data-validation-error-msg="Please select Window screens are on the windows and in good repair" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="WindowScreensWODC" id="WindowScreensWODC" data-validation-error-msg-container="#WindowScreensWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="WindowScreensWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="WindowScreensError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Window guards are in place and in good repair: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowGuards" id="WindowGuardsYes" value="Yes" data-validation-error-msg-container="#WindowGuardsError" data-validation-error-msg="Please select Window guards are in place and in good repair" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowGuards" id="WindowGuardsNo" data-validation-error-msg-container="#WindowGuardsError" data-validation-error-msg="Please select Window guards are in place and in good repair" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WindowGuards" id="WindowGuardsNA" data-validation-error-msg-container="#WindowGuardsError" data-validation-error-msg="Please select Window guards are in place and in good repair" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="WindowGuardsWODC" id="WindowGuardsWODC" data-validation-error-msg-container="#WindowGuardsWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="WindowGuardsWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="WindowGuardsError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Well lit – fixtures are in good repair and covered: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WellLitFixtures" id="WellLitFixturesYes" value="Yes" data-validation-error-msg-container="#WellLitFixturesError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WellLitFixtures" id="WellLitFixturesNo" data-validation-error-msg-container="#WellLitFixturesError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="WellLitFixtures" id="WellLitFixturesNA" data-validation-error-msg-container="#WellLitFixturesError" data-validation-error-msg="Please select Well lit – fixtures are in good repair and covered" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" placeholder="Work Order Date/Comments" name="WellLitFixturesWODC" id="WellLitFixturesWODC" data-validation-error-msg-container="#WellLitFixturesWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                    <span id="WellLitFixturesWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="WellLitFixturesError"></div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Trash can cleaned and lined- other places you “bags”: </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="TrashCleaned" id="TrashCleanedYes" value="Yes" data-validation-error-msg-container="#TrashCleanedError" data-validation-error-msg="Please select Trash can cleaned and lined- other places you bags" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="TrashCleaned" id="TrashCleanedNo" data-validation-error-msg-container="#TrashCleanedError" data-validation-error-msg="Please select Trash can cleaned and lined- other places you bags" value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="TrashCleaned" id="TrashCleanedNA" data-validation-error-msg-container="#TrashCleanedError" data-validation-error-msg="Please select Trash can cleaned and lined- other places you bags" value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                            <input type="text" placeholder="Work Order Date/Comments" name="TrashCleanedWODC" id="TrashCleanedWODC" data-validation-error-msg-container="#TrashCleanedWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="TrashCleanedWODCError"></span>
+
+                </div>
+                <div class="col-sm-12" id="TrashCleanedError"></div>
+                <div class="col-sm-3"></div>
+
+            </div>
+        </div>
+        <hr />
+
+
+
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="form-group row">
+                <label class="col-sm-6 col-form-label">Radiator/baseboard heater is operable, clean and in good repair : </label>
+                <div class="col-sm-3" style="display: flex;">
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RadiatorBaseboardHeater" id="RadiatorBaseboardHeaterYes" value="Yes" data-validation-error-msg-container="#RadiatorBaseboardHeaterError" data-validation-error-msg="Please select Radiator/baseboard heater is operable, clean and in good repair" data-validation="required">
+                            Yes
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RadiatorBaseboardHeater" id="RadiatorBaseboardHeaterNo" data-validation-error-msg-container="#RadiatorBaseboardHeaterError" data-validation-error-msg="Please select Radiator/baseboard heater is operable, clean and in good repair " value="No">
+                            No
+                        </label>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-radio" style="margin-top: auto;">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="RadiatorBaseboardHeater" id="RadiatorBaseboardHeaterNA" data-validation-error-msg-container="#RadiatorBaseboardHeaterError" data-validation-error-msg="Please select Radiator/baseboard heater is operable, clean and in good repair " value="NA">
+                            N/A
+                        </label>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                            <input type="text" placeholder="Work Order Date/Comments" name="RadiatorBaseboardHeaterWODC" id="RadiatorBaseboardHeaterWODC" data-validation-error-msg-container="#RadiatorBaseboardHeaterWODCError" data-validation-error-msg="Enter Work Order Date/Comments" class="form-control" />
+                            <span id="RadiatorBaseboardHeaterWODCError"></span>
+                </div>
+                <div class="col-sm-12" id="RadiatorBaseboardHeaterError"></div>
+                <div class="col-sm-3"></div>
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-success btn-fw previous" id="KitchensANDDiningPrevious" onclick="goPreviousForm('ToxicSubstances', 'ToxicSubstancesNext', 'ToxicSubstancesPrevious');">Previous</button>
+            <button type="submit" class="btn btn-success btn-fw" id="KitchensANDDiningNext">Next</button>
+        </div>
+    </section>
+</form>
