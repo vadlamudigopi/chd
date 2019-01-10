@@ -8,7 +8,7 @@ function validateWorkOrder() {
         var errorDiv = cls.attr("data-validation-error-msg-container");
         errorHtml = "";
         if (this.value == "No") {
-            cls.attr({ "disabled": false, "data-validation": "required","value":'' });
+            cls.attr({ "disabled": false, "data-validation": "required","value":"" });
             $(errorDiv).addClass("has-error");
 
             errorHtml = "<span class='help-block' style='font-size: 13px;color: red;'>Enter Work Order Date/Comments</span>";
